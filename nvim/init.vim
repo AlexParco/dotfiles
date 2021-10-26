@@ -54,7 +54,7 @@ colorscheme github_dark_default
 
 source $HOME/.config/nvim/themes/airline.vim
 
-source $HOME/.config/nvim/keymaps.vim
+source $HOME/.config/nvim/settings/keymaps.vim
 
 source $HOME/.config/nvim/plug-config/coc.vim
 

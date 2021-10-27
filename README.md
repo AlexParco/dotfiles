@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal configurations and dotfiles for Arch Linux and bspwm.
+My personal configurations for Arch Linux and bspwm.
 
 ## Sytem
 

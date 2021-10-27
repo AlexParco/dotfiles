@@ -1,15 +1,18 @@
 [bar/main]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 45
+height = 50
 ;offset-x = 1%
 offset-y = 0%
 radius = 0
 fixed-center = true
 bottom = true 
 #background = #fbd9c6
-background = #0f0b08
-foreground = #fad2c5
+background = #0D1117
+
+; background = #0f0b08
+; foreground = #fad2c5
+foreground = #ffffff
 
 line-size = 0
 line-color = #f00
@@ -23,7 +26,7 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 0
 
-font-0 = Iosevka Nerd Font:size=11;4
+font-0 = Iosevka Nerd Font:size=13;4
 font-1 = @FONT_UNIFONT@:size=8:antialias=false;0
 font-2 = @FONT_SIJI@;1
 

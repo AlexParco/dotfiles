@@ -25,12 +25,10 @@ set termguicolors
 
 call plug#begin('~/.vim/plugged')
     " aspects
- "   Plug 'ryanoasis/vim-devicons'
-    Plug 'pradyungn/Mountain', {'rtp': 'vim'}
+    Plug 'ryanoasis/vim-devicons'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'projekt0n/github-nvim-theme'
-
 
     " emmet
     Plug 'mattn/emmet-vim'
@@ -58,8 +56,5 @@ source $HOME/.config/nvim/settings/keymaps.vim
 
 source $HOME/.config/nvim/plug-config/coc.vim
 
-let g:python3_host_prog = "/home/alex/."
-
-let g:vim_jsx_pretty_colorful_config = 1 
 
 

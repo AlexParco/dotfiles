@@ -1,24 +1,35 @@
 #
 # wm independent hotkeys
 #
-
 # terminal emulator
 super + Return
 	alacritty
 
-# program launcher
+# Application launcher
 super + space 
-        rofi -show drun
+        rofi -show drun -show-icons
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+super + p
+        rofi -show power-menu -modi power-menu:rofi-power-menu
+
+alt + Tab
+        rofi -show window
+
+# 
+super + e
+        thunar
 
 # volume/
 alt + F1
 	amixer -q set Master toggle
 alt + {u,i}
 	amixer -q set Master 5%{-,+} unmute
+
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
 #
 # bspwm hotkeys
 #

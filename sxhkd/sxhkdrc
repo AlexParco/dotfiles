@@ -1,7 +1,12 @@
 #
 # wm independent hotkeys
 #
+#
 # terminal emulator
+
+super + alt + s
+        import ss.jpg
+
 super + Return
 	alacritty
 

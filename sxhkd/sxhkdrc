@@ -8,7 +8,7 @@ super + alt + s
         import ss.jpg
 
 super + Return
-	alacritty
+	kitty
 
 # Application launcher
 super + space 

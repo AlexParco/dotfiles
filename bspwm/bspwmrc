@@ -5,8 +5,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 $HOME/.screenlayout/display.sh
 feh --bg-scale ~/dotfiles/images/4455.jpg
 $HOME/.config/polybar/launch.sh
-sxhkd &
-picom -b
+
 
 # fix java apps
 wmname LG3D

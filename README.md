@@ -9,14 +9,14 @@ My personal configurations for Arch Linux and bspwm.
 Window manager | bspwm
 Statubar | polybar
 Application launcher | rofi
-Terminal | alacritty
+Terminal | Kitty
 Shell | zsh, powerlevel9k
-Editor | vscode
-Calendar | khal
+Editor | neovim
 
 ## Screenshots
 
 <div>
     <img src="./images/4556.jpg" width="1920">
+    <img src="./images/467.jpg" width="1920">
     <img src="./images/4356.jpg" width="1920">
 </div>

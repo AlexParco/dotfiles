@@ -17,6 +17,6 @@ Editor | neovim
 
 <div>
     <img src="./images/4556.jpg" width="1920">
-    <img src="./images/467.jpg" width="1920">
+    <img src="./images/4670.jpg" width="1920">
     <img src="./images/4356.jpg" width="1920">
 </div>

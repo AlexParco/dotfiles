@@ -2,22 +2,30 @@ set nowrap
 set noswapfile
 set nobackup
 set clipboard=unnamedplus
-set sw=2
+set sw=4
 set expandtab
 set smartindent
 set rnu number
-set numberwidth=2
+set numberwidth=4
+set tabstop=4
 
 let mapleader=","
-set tabstop=2
 
+lua require('keymap')
 lua require('plugins')
 lua require('core.cmp')
+lua require('core.dashboard')
 lua require('core.nvimtree')
 lua require('core.treesitter')
+lua require('core.gitsigns')
+lua require('core.trouble')
+lua require('core.telescope')
+lua require('core.line')
 
 lua require('lsp.config')
 lua require('lsp.installer')
+
+
 
  " themes
 lua <<EOF

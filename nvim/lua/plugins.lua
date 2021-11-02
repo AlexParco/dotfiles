@@ -24,4 +24,32 @@ return require('packer').startup(function()
       requires = 'kyazdani42/nvim-web-devicons',
       config = function() require'nvim-tree'.setup {} end
   }
+
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires ='nvim-lua/plenary.nvim'
+  }
+
+  use {'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
+
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
+
+  use {'nvim-telescope/telescope-fzy-native.nvim'}
+
+  use'glepnir/dashboard-nvim'
 end)

@@ -3,16 +3,16 @@
 #
 #
 # terminal emulator
+super + Return
+        st
 
+# screenshots
 super + alt + s
         import ss.jpg
 
-super + Return
-	kitty
-
 # Application launcher
 super + space 
-        rofi -show drun -show-icons
+        rofi -show drun -show-icons -font "Iosevka Custom 14"
 
 super + p
         rofi -show power-menu -modi power-menu:rofi-power-menu
@@ -20,7 +20,7 @@ super + p
 alt + Tab
         rofi -show window
 
-# 
+# explorer
 super + e
         thunar
 

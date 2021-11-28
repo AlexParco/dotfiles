@@ -1,6 +1,6 @@
 #
 # wm independent hotkeys
-#
+
 #
 # terminal emulator
 super + Return
@@ -12,8 +12,7 @@ super + alt + s
 
 # Application launcher
 super + space 
-        rofi -show drun -show-icons -font "Iosevka Custom 14"
-
+        rofi -show drun -show-icons
 super + p
         rofi -show power-menu -modi power-menu:rofi-power-menu
 
@@ -21,8 +20,8 @@ alt + Tab
         rofi -show window
 
 # explorer
-super + e
-        thunar
+#super + e
+#        thunar
 
 # volume/
 alt + F1

@@ -1,10 +1,10 @@
 * {
-    font: "Ubuntu Nerd Font 11.5";
-    active-background: #6A606A;
+    font: "SF Mono 12";
+    active-background: #6F6F6F;
     active-foreground: @foreground;
     normal-background: @background;
     normal-foreground: @foreground;
-    urgent-background: #555567;
+    urgent-background: #6C5E60;
     urgent-foreground: @foreground;
 
     alternate-active-background: @background;
@@ -14,16 +14,16 @@
     alternate-urgent-background: @background;
     alternate-urgent-foreground: @foreground;
 
-    selected-active-background: #555567;
+    selected-active-background: #6C5E60;
     selected-active-foreground: @foreground;
-    selected-normal-background: #6A606A;
+    selected-normal-background: #6F6F6F;
     selected-normal-foreground: @foreground;
-    selected-urgent-background: #8F2E3E;
+    selected-urgent-background: #A62A4C;
     selected-urgent-foreground: @foreground;
 
     background-color: @background;
-    background: #0a0a0f;
-    foreground: #c6c2c6;
+    background: #0e0e0e;
+    foreground: #c9c9c9;
     border-color: @background;
     spacing: 2;
 }

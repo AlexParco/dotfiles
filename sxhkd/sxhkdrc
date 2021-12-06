@@ -4,30 +4,47 @@
 #
 # terminal emulator
 super + Return
-        st
+	alacritty
 
 # screenshots
-super + alt + s
-        import ss.jpg
+super + shift + s
+	maim -s -u | xclip -selection clipboard -t image/png -i
+
+super + s
+	scrot ~/.screenshots/%Y-%m-%d-%T-screenshot.png
 
 # Application launcher
 super + space 
-        rofi -show drun -show-icons
+	rofi -show drun -show-icons
+
 super + p
-        rofi -show power-menu -modi power-menu:rofi-power-menu
+	rofi -show power-menu -modi power-menu:rofi-power-menu
 
 alt + Tab
-        rofi -show window
+	rofi -show window
 
 # explorer
-#super + e
-#        thunar
+super + e
+	ranger
 
-# volume/
-alt + F1
-	amixer -q set Master toggle
-alt + {u,i}
-	amixer -q set Master 5%{-,+} unmute
+# Audio
+XF86AudioLowerVolume
+	pamixer --decrease 5
+
+XF86AudioRaiseVolume
+	pamixer --increase 5
+	
+XF86AudioMute
+	pamixer --toggle-mute
+
+# Brightness
+XF86MonBrightnessUp
+	brightnessctl set +10%
+
+XF86MonBrightnessDown
+	brightnessctl set 10%-
+
+
 
 
 # make sxhkd reload its configuration files:

@@ -5,6 +5,7 @@ map('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 map('n', 'w', ':w<CR>', {noremap = true, silent = true})
 
 map('n', 'q', ':q<CR>', {noremap = true, silent = true})
+map('n', '<leader>qq', ':q!<CR>', {noremap = true, silent = true})
 map('n', '<leader>wq', ':wq<CR>', {noremap = true, silent = true})
 
 map('v', '<', '<gv', {noremap = true, silent = true})

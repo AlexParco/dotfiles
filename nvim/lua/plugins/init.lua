@@ -12,10 +12,20 @@ return require('packer').startup(function()
     use "wbthomason/packer.nvim"
     use {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate"
+        run = ":TSUpdate",
+        event = "BufRead",
+        config = "require('plugins.configs.treesitter')",
     }
-    use "Shatur/neovim-ayu"
-    use "norcalli/nvim-colorizer.lua"
+    use {"Shatur/neovim-ayu"}
+
+    use {
+        "kyazdani42/nvim-web-devicons",
+    }
+
+    use {
+        "norcalli/nvim-colorizer.lua",
+        config = function() require('plugins.configs.colorizer') end,
+    }
 
     -- Lsp and Autocomplete
     use {
@@ -29,6 +39,11 @@ return require('packer').startup(function()
             end, 0)
         end,
         config = "require('plugins.configs.lspconfig')"
+    }
+
+    use {
+        'williamboman/nvim-lsp-installer',
+        config = "require('plugins.configs.lspinstall')"
     }
 
     use {
@@ -72,9 +87,51 @@ return require('packer').startup(function()
         "hrsh7th/cmp-path",
         after = "cmp-buffer",
     }
+
     use {
-        "windwp/nvim-autopairs"
+        "windwp/nvim-autopairs",
+        after = "nvim-cmp",
+        config = "require('plugins.configs.pairs')",
     }
 
+    use {
+        "kyazdani42/nvim-tree.lua",
+        cmd = {"NvimTreeToggle"},
+        config = "require('plugins.configs.nvimtree')",
+        setup = function()
+            local map = vim.api.nvim_set_keymap 
+            map('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
+        end
+    }
+
+    use {
+        "numToStr/Comment.nvim",
+        module = "Comment",
+        config = function() require('Comment').setup() end,
+        setup = function()
+            local map = vim.api.nvim_set_keymap 
+            if "Comment.nvim" then
+                vim.defer_fn(function()
+                    require("packer").loader("Comment.nvim")
+                end, 0)
+            end
+            map("n", "<leader>2", ":lua require('Comment.api').toggle()<CR>", {noremap = true, silent = true})
+            map("v", "<leader>2", ":lua require('Comment.api').gc(vim.fn.visualmode())<CR>", {noremap = true, silent = true})
+        end,
+    }
+
+    use {
+        "famiu/feline.nvim",
+        after = "nvim-web-devicons",
+        config = function() require('plugins.configs.statusline') end,
+    }
+    
+    use {
+        "lewis6991/gitsigns.nvim",
+        config = "require('plugins.configs.gitsigns')",
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+    }
 end)
 

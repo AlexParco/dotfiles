@@ -113,7 +113,6 @@ alias vnim="nvim"
 alias nv="nvim"
 alias nf="neofetch"
 alias bye="shutdown now"
-
 alias cd.="cd .."
 
 alias luamake=/home/alex/.config/nvim/ls/lua-language-server/3rd/luamake/luamake

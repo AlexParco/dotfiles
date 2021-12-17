@@ -127,11 +127,35 @@ return require('packer').startup(function()
     }
     
     use {
+        "akinsho/bufferline.nvim",
+        after = "nvim-web-devicons",
+        config = function()
+            require("bufferline").setup{}
+        end,
+        setup = function()
+            local map = vim.api.nvim_set_keymap 
+            map("n", "<TAB>", ":BufferLineCycleNext <CR>", {noremap = true, silent = true})
+            map("n", "<S-Tab>", ":BufferLineCyclePrev <CR>", {noremap = true, silent = true})
+        end,
+    }
+    
+    use {
         "lewis6991/gitsigns.nvim",
         config = "require('plugins.configs.gitsigns')",
         requires = {
             'nvim-lua/plenary.nvim'
         },
     }
-end)
 
+    use {
+        "akinsho/toggleterm.nvim",
+        config = "require('plugins.configs.toggleterm')"
+    }
+
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        event = "BufRead",
+        config = "require('plugins.configs.indent')",
+    }
+
+end)

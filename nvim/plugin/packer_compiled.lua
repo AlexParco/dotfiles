@@ -86,6 +86,14 @@ _G.packer_plugins = {
     url = "https://github.com/L3MON4D3/LuaSnip",
     wants = { "friendly-snippets" }
   },
+  ["bufferline.nvim"] = {
+    config = { "\27LJ\1\2<\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\15bufferline\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/opt/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["cmp-buffer"] = {
     after = { "cmp-path" },
     after_files = { "/home/alex/.local/share/nvim/site/pack/packer/opt/cmp-buffer/after/plugin/cmp_buffer.lua" },
@@ -152,6 +160,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    config = { "require('plugins.configs.indent')" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["neovim-ayu"] = {
     loaded = true,
@@ -221,6 +237,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    config = { "require('plugins.configs.toggleterm')" },
+    loaded = true,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   }
 }
 
@@ -253,6 +275,10 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
+-- Setup for: bufferline.nvim
+time([[Setup for bufferline.nvim]], true)
+try_loadstring("\27LJ\1\2Ë\1\0\0\6\0\n\0\0164\0\0\0007\0\1\0007\0\2\0\16\1\0\0%\2\3\0%\3\4\0%\4\5\0003\5\6\0>\1\5\1\16\1\0\0%\2\3\0%\3\a\0%\4\b\0003\5\t\0>\1\5\1G\0\1\0\1\0\2\vsilent\2\fnoremap\2\30:BufferLineCyclePrev <CR>\f<S-Tab>\1\0\2\vsilent\2\fnoremap\2\30:BufferLineCycleNext <CR>\n<TAB>\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "bufferline.nvim")
+time([[Setup for bufferline.nvim]], false)
 -- Setup for: Comment.nvim
 time([[Setup for Comment.nvim]], true)
 try_loadstring("\27LJ\1\2F\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0%\1\3\0>\0\2\1G\0\1\0\17Comment.nvim\vloader\vpacker\frequire”\2\1\0\6\0\f\0\0214\0\0\0007\0\1\0007\0\2\0004\1\0\0007\1\3\0011\2\4\0'\3\0\0>\1\3\1\16\1\0\0%\2\5\0%\3\6\0%\4\a\0003\5\b\0>\1\5\1\16\1\0\0%\2\t\0%\3\6\0%\4\n\0003\5\v\0>\1\5\1G\0\1\0\1\0\2\vsilent\2\fnoremap\2<:lua require('Comment.api').gc(vim.fn.visualmode())<CR>\6v\1\0\2\vsilent\2\fnoremap\2-:lua require('Comment.api').toggle()<CR>\14<leader>2\6n\0\rdefer_fn\20nvim_set_keymap\bapi\bvim\0", "setup", "Comment.nvim")
@@ -265,14 +291,6 @@ time([[Setup for nvim-lspconfig]], false)
 time([[Setup for nvim-tree.lua]], true)
 try_loadstring("\27LJ\1\2w\0\0\6\0\a\0\n4\0\0\0007\0\1\0007\0\2\0\16\1\0\0%\2\3\0%\3\4\0%\4\5\0003\5\6\0>\1\5\1G\0\1\0\1\0\2\vsilent\2\fnoremap\2\24:NvimTreeToggle<CR>\n<C-n>\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "nvim-tree.lua")
 time([[Setup for nvim-tree.lua]], false)
--- Config for: nvim-lsp-installer
-time([[Config for nvim-lsp-installer]], true)
-require('plugins.configs.lspinstall')
-time([[Config for nvim-lsp-installer]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('plugins.configs.gitsigns')
-time([[Config for gitsigns.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('plugins.configs.cmp')
@@ -281,6 +299,18 @@ time([[Config for nvim-cmp]], false)
 time([[Config for nvim-colorizer.lua]], true)
 try_loadstring("\27LJ\1\0029\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\30plugins.configs.colorizer\frequire\0", "config", "nvim-colorizer.lua")
 time([[Config for nvim-colorizer.lua]], false)
+-- Config for: nvim-lsp-installer
+time([[Config for nvim-lsp-installer]], true)
+require('plugins.configs.lspinstall')
+time([[Config for nvim-lsp-installer]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('plugins.configs.gitsigns')
+time([[Config for gitsigns.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require('plugins.configs.toggleterm')
+time([[Config for toggleterm.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-autopairs ]]
@@ -300,6 +330,11 @@ vim.cmd [[ packadd feline.nvim ]]
 -- Config for: feline.nvim
 try_loadstring("\27LJ\1\2:\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\31plugins.configs.statusline\frequire\0", "config", "feline.nvim")
 
+vim.cmd [[ packadd bufferline.nvim ]]
+
+-- Config for: bufferline.nvim
+try_loadstring("\27LJ\1\2<\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\15bufferline\frequire\0", "config", "bufferline.nvim")
+
 vim.cmd [[ packadd friendly-snippets ]]
 time([[Sequenced loading]], false)
 
@@ -313,7 +348,7 @@ vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'friendly-snippets'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

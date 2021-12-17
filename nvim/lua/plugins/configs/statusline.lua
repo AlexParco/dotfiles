@@ -1,9 +1,9 @@
 if not pcall(require, "feline") then
-  return
+    return
 end
 
 local colors = {
-    bg = '#282c34',
+    bg = '#0A0E14',
     fg = '#abb2bf',
     yellow = '#e0af68',
     cyan = '#56b6c2',
@@ -281,21 +281,21 @@ table.insert(components.active[3], comps.scroll_bar)
 table.insert(components.active[3], comps.vi_mode.right)
 
 
--- TreeSitter
+--TreeSitter
 -- local ts_utils = require("nvim-treesitter.ts_utils")
 -- local ts_parsers = require("nvim-treesitter.parsers")
 -- local ts_queries = require("nvim-treesitter.query")
---[[ table.insert(components.active[2], {
-  provider = function()
-    local node = require("nvim-treesitter.ts_utils").get_node_at_cursor()
-    return ("%d:%s [%d, %d] - [%d, %d]")
-      :format(node:symbol(), node:type(), node:range())
-  end,
-  enabled = function()
-    local ok, ts_parsers = pcall(require, "nvim-treesitter.parsers")
-    return ok and ts_parsers.has_parser()
-  end
-}) ]]
+-- table.insert(components.active[2], {
+--   provider = function()
+--     local node = require("nvim-treesitter.ts_utils").get_node_at_cursor()
+--     return ("%d:%s [%d, %d] - [%d, %d]")
+--       :format(node:symbol(), node:type(), node:range())
+--   end,
+--   enabled = function()
+--     local ok, ts_parsers = pcall(require, "nvim-treesitter.parsers")
+--     return ok and ts_parsers.has_parser()
+--   end
+-- })
 
 -- require'feline'.setup {}
 require'feline'.setup {
@@ -313,4 +313,3 @@ require'feline'.setup {
         bufnames = {}
     }
 }
-

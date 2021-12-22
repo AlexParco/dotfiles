@@ -1,315 +1,191 @@
-if not pcall(require, "feline") then
-    return
-end
+-- require'nvim-web-devicons'.setup()
+
+local gl = require('galaxyline')
+local gls = gl.section
+gl.short_line_list = {'LuaTree','vista','dbui'}
 
 local colors = {
-    bg = '#0A0E14',
-    fg = '#abb2bf',
-    yellow = '#e0af68',
-    cyan = '#56b6c2',
-    darkblue = '#081633',
-    green = '#98c379',
-    orange = '#d19a66',
-    violet = '#a9a1e1',
-    magenta = '#c678dd',
-    blue = '#61afef',
-    red = '#e86671'
+  bg = '#282c34',
+  yellow = '#fabd2f',
+  cyan = '#008080',
+  darkblue = '#081633',
+  green = '#afd700',
+  orange = '#FF8800',
+  purple = '#5d4d7a',
+  magenta = '#d16d9e',
+  grey = '#c0c0c0',
+  blue = '#0087d7',
+  red = '#ec5f67'
 }
 
-local vi_mode_colors = {
-    NORMAL = colors.green,
-    INSERT = colors.red,
-    VISUAL = colors.magenta,
-    OP = colors.green,
-    BLOCK = colors.blue,
-    REPLACE = colors.violet,
-    ['V-REPLACE'] = colors.violet,
-    ENTER = colors.cyan,
-    MORE = colors.cyan,
-    SELECT = colors.orange,
-    COMMAND = colors.green,
-    SHELL = colors.green,
-    TERM = colors.green,
-    NONE = colors.yellow
-}
-
-local function file_osinfo()
-    local os = vim.bo.fileformat:upper()
-    local icon
-    if os == 'UNIX' then
-        icon = ' '
-    elseif os == 'MAC' then
-        icon = ' '
-    else
-        icon = ' '
-    end
-    return icon .. os
+local buffer_not_empty = function()
+  if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
+    return true
+  end
+  return false
 end
 
-local lsp = require 'feline.providers.lsp'
-local vi_mode_utils = require 'feline.providers.vi_mode'
+gls.left[1] = {
+  FirstElement = {
+    -- provider = function() return '▋' end,
+    provider = function() return ' ' end,
+    highlight = {colors.bg,colors.purple}
+  },
+}
+gls.left[2] = {
+  ViMode = {
+    provider = function()
+      local alias = {n = 'NORMAL',i = 'INSERT',c= 'COMMAND',V= 'VISUAL', [''] = 'VISUAL'}
+      return alias[vim.fn.mode()]
+    end,
+    separator = ' ',
+    separator_highlight = {colors.yellow,function()
+      if not buffer_not_empty() then
+        return colors.purple
+      end
+      return colors.purple
+    end},
+    highlight = {colors.grey,colors.purple,'bold'},
+  },
+}
+-- gls.left[3] ={
+--   FileIcon = {
+--     separator = ' ',
+--     provider = 'FileIcon',
+--     condition = buffer_not_empty,
+--     highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
+--   },
+-- }
+-- gls.left[4] = {
+--   FileName = {
+--     provider = {'FileSize'},
+--     condition = buffer_not_empty,
+--     separator = ' ',
+--     separator_highlight = {colors.purple,colors.bg},
+--     highlight = {colors.magenta,colors.bg}
+--   }
+-- }
 
-local lsp_get_diag = function(str)
-  local count = vim.lsp.diagnostic.get_count(0, str)
-  return (count > 0) and ' '..count..' ' or ''
+gls.left[5] = {
+  GitIcon = {
+    provider = function() return '  ' end,
+    condition = buffer_not_empty,
+    highlight = {colors.orange,colors.bg},
+  }
+}
+gls.left[6] = {
+  GitBranch = {
+    provider = 'GitBranch',
+    condition = buffer_not_empty,
+    highlight = {colors.grey,colors.bg},
+  }
+}
+
+local checkwidth = function()
+  local squeeze_width  = vim.fn.winwidth(0) / 2
+  if squeeze_width > 40 then
+    return true
+  end
+  return false
 end
 
--- LuaFormatter off
-
-local comps = {
-    vi_mode = {
-        left = {
-            provider = function()
-              return '  ' .. vi_mode_utils.get_vim_mode()
-            end,
-            hl = function()
-                local val = {
-                    name = vi_mode_utils.get_mode_highlight_name(),
-                    fg = vi_mode_utils.get_mode_color(),
-                    -- fg = colors.bg
-                }
-                return val
-            end,
-            right_sep = ' '
-        },
-        right = {
-            -- provider = '▊',
-            provider = '' ,
-            hl = function()
-                local val = {
-                    name = vi_mode_utils.get_mode_highlight_name(),
-                    fg = vi_mode_utils.get_mode_color()
-                }
-                return val
-            end,
-            left_sep = ' ',
-            right_sep = ' '
-        }
-    },
-    file = {
-        info = {
-            provider = {
-              name = 'file_info',
-              opts = {
-                type = 'relative-short',
-                file_readonly_icon = '  ',
-                -- file_readonly_icon = '  ',
-                -- file_readonly_icon = '  ',
-                -- file_readonly_icon = '  ',
-                -- file_modified_icon = '',
-                file_modified_icon = '',
-                -- file_modified_icon = 'ﱐ',
-                -- file_modified_icon = '',
-                -- file_modified_icon = '',
-                -- file_modified_icon = '',
-              }
-            },
-            hl = {
-                fg = colors.blue,
-                style = 'bold'
-            }
-        },
-        encoding = {
-            provider = 'file_encoding',
-            left_sep = ' ',
-            hl = {
-                fg = colors.violet,
-                style = 'bold'
-            }
-        },
-        type = {
-            provider = 'file_type'
-        },
-        os = {
-            provider = file_osinfo,
-            left_sep = ' ',
-            hl = {
-                fg = colors.violet,
-                style = 'bold'
-            }
-        },
-        position = {
-            provider = 'position',
-            left_sep = ' ',
-            hl = {
-                fg = colors.cyan,
-                -- style = 'bold'
-            }
-        },
-    },
-    left_end = {
-        provider = function() return '' end,
-        hl = {
-            fg = colors.bg,
-            bg = colors.blue,
-        }
-    },
-    line_percentage = {
-        provider = 'line_percentage',
-        left_sep = ' ',
-        hl = {
-            style = 'bold'
-        }
-    },
-    scroll_bar = {
-        provider = 'scroll_bar',
-        left_sep = ' ',
-        hl = {
-            fg = colors.blue,
-            style = 'bold'
-        }
-    },
-    diagnos = {
-        err = {
-            -- provider = 'diagnostic_errors',
-            provider = function()
-                return '' .. lsp_get_diag("Error")
-            end,
-            -- left_sep = ' ',
-            enabled = function() return lsp.diagnostics_exist('Error') end,
-            hl = {
-                fg = colors.red
-            }
-        },
-        warn = {
-            -- provider = 'diagnostic_warnings',
-            provider = function()
-                return '' ..  lsp_get_diag("Warning")
-            end,
-            -- left_sep = ' ',
-            enabled = function() return lsp.diagnostics_exist('Warning') end,
-            hl = {
-                fg = colors.yellow
-            }
-        },
-        info = {
-            -- provider = 'diagnostic_info',
-            provider = function()
-                return '' .. lsp_get_diag("Information")
-            end,
-            -- left_sep = ' ',
-            enabled = function() return lsp.diagnostics_exist('Information') end,
-            hl = {
-                fg = colors.blue
-            }
-        },
-        hint = {
-            -- provider = 'diagnostic_hints',
-            provider = function()
-                return '' .. lsp_get_diag("Hint")
-            end,
-            -- left_sep = ' ',
-            enabled = function() return lsp.diagnostics_exist('Hint') end,
-            hl = {
-                fg = colors.cyan
-            }
-        },
-    },
-    lsp = {
-        name = {
-            provider = 'lsp_client_names',
-            -- left_sep = ' ',
-            right_sep = ' ',
-            -- icon = '  ',
-            icon = '慎',
-            hl = {
-                fg = colors.yellow
-            }
-        }
-    },
-    git = {
-        branch = {
-            provider = 'git_branch',
-            icon = ' ',
-            -- icon = ' ',
-            left_sep = ' ',
-            hl = {
-                fg = colors.violet,
-                style = 'bold'
-            },
-        },
-        add = {
-            provider = 'git_diff_added',
-            hl = {
-                fg = colors.green
-            }
-        },
-        change = {
-            provider = 'git_diff_changed',
-            hl = {
-                fg = colors.orange
-            }
-        },
-        remove = {
-            provider = 'git_diff_removed',
-            hl = {
-                fg = colors.red
-            }
-        }
-    }
+-- gls.left[7] = {
+--   DiffAdd = {
+--     provider = 'DiffAdd',
+--     condition = checkwidth,
+--     icon = ' ',
+--     highlight = {colors.green,colors.purple},
+--   }
+-- }
+-- gls.left[8] = {
+--   DiffModified = {
+--     provider = 'DiffModified',
+--     condition = checkwidth,
+--     icon = ' ',
+--     highlight = {colors.orange,colors.purple},
+--   }
+-- }
+-- gls.left[9] = {
+--   DiffRemove = {
+--     provider = 'DiffRemove',
+--     condition = checkwidth,
+--     icon = ' ',
+--     highlight = {colors.red,colors.purple},
+--   }
+-- }
+gls.left[10] = {
+  LeftEnd = {
+    provider = function() return ' ' end,
+    separator = ' ',
+    separator_highlight = {colors.purple,colors.bg},
+    highlight = {colors.purple,colors.bg}
+  }
+}
+gls.left[11] = {
+  DiagnosticError = {
+    provider = 'DiagnosticError',
+    icon = '  ',
+    highlight = {colors.red,colors.bg}
+  }
+}
+gls.left[12] = {
+  Space = {
+    provider = function () return '' end
+  }
+}
+gls.left[13] = {
+  DiagnosticWarn = {
+    provider = 'DiagnosticWarn',
+    icon = '  ',
+    highlight = {colors.blue,colors.bg},
+  }
+}
+gls.right[1]= {
+  FileFormat = {
+    provider = 'FileFormat',
+    separator = ' ',
+    separator_highlight = {colors.bg,colors.purple},
+    highlight = {colors.grey,colors.purple},
+  }
+}
+gls.right[2] = {
+  LineInfo = {
+    provider = 'LineColumn',
+    separator = ' | ',
+    separator_highlight = {colors.darkblue,colors.purple},
+    highlight = {colors.grey,colors.purple},
+  },
+}
+gls.right[3] = {
+  PerCent = {
+    provider = 'LinePercent',
+    separator = ' ',
+    separator_highlight = {colors.darkblue,colors.purple},
+    highlight = {colors.grey,colors.darkblue},
+  }
+}
+gls.right[4] = {
+  ScrollBar = {
+    provider = 'ScrollBar',
+    highlight = {colors.yellow,colors.purple},
+  }
 }
 
-local components = {
-  active = {},
-  inactive = {},
-}
-
-table.insert(components.active, {})
-table.insert(components.active, {})
-table.insert(components.active, {})
-table.insert(components.inactive, {})
-table.insert(components.inactive, {})
-table.insert(components.inactive, {})
-
-table.insert(components.active[1], comps.vi_mode.left)
-table.insert(components.active[1], comps.file.info)
-table.insert(components.active[1], comps.git.branch)
-table.insert(components.active[1], comps.git.add)
-table.insert(components.active[1], comps.git.change)
-table.insert(components.active[1], comps.git.remove)
-table.insert(components.inactive[1], comps.vi_mode.left)
-table.insert(components.inactive[1], comps.file.info)
-table.insert(components.active[3], comps.diagnos.err)
-table.insert(components.active[3], comps.diagnos.warn)
-table.insert(components.active[3], comps.diagnos.hint)
-table.insert(components.active[3], comps.diagnos.info)
-table.insert(components.active[3], comps.lsp.name)
-table.insert(components.active[3], comps.file.os)
-table.insert(components.active[3], comps.file.position)
-table.insert(components.active[3], comps.line_percentage)
-table.insert(components.active[3], comps.scroll_bar)
-table.insert(components.active[3], comps.vi_mode.right)
+-- gls.short_line_left[1] = {
+--   BufferType = {
+--     provider = 'FileTypeName',
+--     separator = ' ',
+--     separator_highlight = {colors.purple,colors.bg},
+--     highlight = {colors.grey,colors.purple}
+--   }
+-- }
 
 
---TreeSitter
--- local ts_utils = require("nvim-treesitter.ts_utils")
--- local ts_parsers = require("nvim-treesitter.parsers")
--- local ts_queries = require("nvim-treesitter.query")
--- table.insert(components.active[2], {
---   provider = function()
---     local node = require("nvim-treesitter.ts_utils").get_node_at_cursor()
---     return ("%d:%s [%d, %d] - [%d, %d]")
---       :format(node:symbol(), node:type(), node:range())
---   end,
---   enabled = function()
---     local ok, ts_parsers = pcall(require, "nvim-treesitter.parsers")
---     return ok and ts_parsers.has_parser()
---   end
--- })
-
--- require'feline'.setup {}
-require'feline'.setup {
-    colors = { bg = colors.bg, fg = colors.fg },
-    components = components,
-    vi_mode_colors = vi_mode_colors,
-    force_inactive = {
-        filetypes = {
-            'packer',
-            'NvimTree',
-            'fugitive',
-            'fugitiveblame'
-        },
-        buftypes = {'terminal'},
-        bufnames = {}
-    }
-}
+-- gls.short_lineright[1] = {
+--   BufferIcon = {
+--     provider= 'BufferIcon',
+--     separator = ' ',
+--     separator_highlight = {colors.purple,colors.bg},
+--     highlight = {colors.grey,colors.purple}
+--   }
+-- }

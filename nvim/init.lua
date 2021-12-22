@@ -6,4 +6,14 @@ require('plugins')
 
 require('plugins.configs.lspconfig')
 
-vim.cmd("colorscheme ayu-dark")
+-- vim.cmd("colorscheme github_dark_default")
+
+require("github-theme").setup({
+  theme_style = "dark_default",
+  dark_sidebar = false,
+  sidebars = {"qf", "vista_kind", "terminal", "packer"},
+
+  colors = {hint = "orange", error = "#ff0000"}
+})
+
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")

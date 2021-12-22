@@ -10,13 +10,16 @@ end
 
 return require('packer').startup(function()
     use "wbthomason/packer.nvim"
+
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
         event = "BufRead",
         config = "require('plugins.configs.treesitter')",
     }
+
     use {"Shatur/neovim-ayu"}
+    use "projekt0n/github-nvim-theme"
 
     use {
         "kyazdani42/nvim-web-devicons",
@@ -121,9 +124,10 @@ return require('packer').startup(function()
     }
 
     use {
-        "famiu/feline.nvim",
+       'glepnir/galaxyline.nvim',
+        brach = 'main',
         after = "nvim-web-devicons",
-        config = function() require('plugins.configs.statusline') end,
+        config = "require('plugins.configs.statusline')",
     }
     
     use {

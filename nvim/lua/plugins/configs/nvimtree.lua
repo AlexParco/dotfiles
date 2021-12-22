@@ -1,9 +1,9 @@
 local git_status = 0
 local ui = {
-                allow_resize = true,
-                side = "left",
-                width = 25,
-                hide_root_folder = true,
+            allow_resize = true,
+            side = "left",
+            width = 25,
+            hide_root_folder = false,
            }
 
 local g = vim.g

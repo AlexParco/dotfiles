@@ -86,6 +86,16 @@ _G.packer_plugins = {
     url = "https://github.com/L3MON4D3/LuaSnip",
     wants = { "friendly-snippets" }
   },
+  ["Spacegray.vim"] = {
+    loaded = true,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/start/Spacegray.vim",
+    url = "https://github.com/ackyshake/Spacegray.vim"
+  },
+  ["base16-vim"] = {
+    loaded = true,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/start/base16-vim",
+    url = "https://github.com/chriskempson/base16-vim"
+  },
   ["bufferline.nvim"] = {
     config = { "\27LJ\1\2<\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\15bufferline\frequire\0" },
     load_after = {},
@@ -138,6 +148,11 @@ _G.packer_plugins = {
     path = "/home/alex/.local/share/nvim/site/pack/packer/opt/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["coc.nvim"] = {
+    loaded = true,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/start/coc.nvim",
+    url = "https://github.com/neoclide/coc.nvim"
+  },
   ["friendly-snippets"] = {
     after = { "friendly-snippets" },
     load_after = {},
@@ -146,14 +161,6 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/alex/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
-  },
-  ["galaxyline.nvim"] = {
-    config = { "require('plugins.configs.statusline')" },
-    load_after = {},
-    loaded = true,
-    needs_bufread = false,
-    path = "/home/alex/.local/share/nvim/site/pack/packer/opt/galaxyline.nvim",
-    url = "https://github.com/glepnir/galaxyline.nvim"
   },
   ["github-nvim-theme"] = {
     loaded = true,
@@ -174,6 +181,12 @@ _G.packer_plugins = {
     path = "/home/alex/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lualine.nvim"] = {
+    config = { "require('plugins.configs.statusline')" },
+    loaded = true,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["neovim-ayu"] = {
     loaded = true,
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/neovim-ayu",
@@ -188,7 +201,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "nvim-autopairs", "LuaSnip" },
+    after = { "LuaSnip", "nvim-autopairs" },
     loaded = true,
     only_config = true
   },
@@ -290,7 +303,7 @@ try_loadstring("\27LJ\1\2U\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\00
 time([[Setup for nvim-lspconfig]], false)
 -- Setup for: Comment.nvim
 time([[Setup for Comment.nvim]], true)
-try_loadstring("\27LJ\1\2F\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0%\1\3\0>\0\2\1G\0\1\0\17Comment.nvim\vloader\vpacker\frequire”\2\1\0\6\0\f\0\0214\0\0\0007\0\1\0007\0\2\0004\1\0\0007\1\3\0011\2\4\0'\3\0\0>\1\3\1\16\1\0\0%\2\5\0%\3\6\0%\4\a\0003\5\b\0>\1\5\1\16\1\0\0%\2\t\0%\3\6\0%\4\n\0003\5\v\0>\1\5\1G\0\1\0\1\0\2\vsilent\2\fnoremap\2<:lua require('Comment.api').gc(vim.fn.visualmode())<CR>\6v\1\0\2\vsilent\2\fnoremap\2-:lua require('Comment.api').toggle()<CR>\14<leader>2\6n\0\rdefer_fn\20nvim_set_keymap\bapi\bvim\0", "setup", "Comment.nvim")
+try_loadstring("\27LJ\1\2F\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0%\1\3\0>\0\2\1G\0\1\0\17Comment.nvim\vloader\vpacker\frequireµ\2\1\0\6\0\f\0\0214\0\0\0007\0\1\0007\0\2\0004\1\0\0007\1\3\0011\2\4\0'\3\0\0>\1\3\1\16\1\0\0%\2\5\0%\3\6\0%\4\a\0003\5\b\0>\1\5\1\16\1\0\0%\2\t\0%\3\6\0%\4\n\0003\5\v\0>\1\5\1G\0\1\0\1\0\2\vsilent\2\fnoremap\2L:lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>\6v\1\0\2\vsilent\2\fnoremap\2>:lua require('Comment.api').toggle_current_linewise()<CR>\14<leader>2\6n\0\rdefer_fn\20nvim_set_keymap\bapi\bvim\0", "setup", "Comment.nvim")
 time([[Setup for Comment.nvim]], false)
 -- Setup for: nvim-tree.lua
 time([[Setup for nvim-tree.lua]], true)
@@ -308,6 +321,10 @@ time([[Config for nvim-colorizer.lua]], false)
 time([[Config for nvim-lsp-installer]], true)
 require('plugins.configs.lspinstall')
 time([[Config for nvim-lsp-installer]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('plugins.configs.statusline')
+time([[Config for lualine.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 require('plugins.configs.gitsigns')
@@ -334,11 +351,6 @@ vim.cmd [[ packadd bufferline.nvim ]]
 
 -- Config for: bufferline.nvim
 try_loadstring("\27LJ\1\2<\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\15bufferline\frequire\0", "config", "bufferline.nvim")
-
-vim.cmd [[ packadd galaxyline.nvim ]]
-
--- Config for: galaxyline.nvim
-require('plugins.configs.statusline')
 
 vim.cmd [[ packadd friendly-snippets ]]
 time([[Sequenced loading]], false)

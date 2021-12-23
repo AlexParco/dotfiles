@@ -11,6 +11,9 @@ end
 return require('packer').startup(function()
     use "wbthomason/packer.nvim"
 
+    -- coc for discord presence
+    use {'neoclide/coc.nvim', branch = 'release'}
+
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
@@ -18,8 +21,11 @@ return require('packer').startup(function()
         config = "require('plugins.configs.treesitter')",
     }
 
+    -- themes
     use {"Shatur/neovim-ayu"}
-    use "projekt0n/github-nvim-theme"
+    use {"projekt0n/github-nvim-theme"}
+    use {'chriskempson/base16-vim'}
+    use {'ackyshake/Spacegray.vim'}
 
     use {
         "kyazdani42/nvim-web-devicons",
@@ -36,7 +42,6 @@ return require('packer').startup(function()
         opt = true,
         setup = function()
         packer_lazy_load "nvim-lspconfig"
-            -- reload the current file so lsp actually starts for it
             vim.defer_fn(function()
                     vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
             end, 0)
@@ -118,16 +123,15 @@ return require('packer').startup(function()
                     require("packer").loader("Comment.nvim")
                 end, 0)
             end
-            map("n", "<leader>2", ":lua require('Comment.api').toggle()<CR>", {noremap = true, silent = true})
-            map("v", "<leader>2", ":lua require('Comment.api').gc(vim.fn.visualmode())<CR>", {noremap = true, silent = true})
+            map("n", "<leader>2", ":lua require('Comment.api').toggle_current_linewise()<CR>", {noremap = true, silent = true})
+            map("v", "<leader>2", ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", {noremap = true, silent = true})
         end,
     }
 
     use {
-       'glepnir/galaxyline.nvim',
-        brach = 'main',
-        after = "nvim-web-devicons",
-        config = "require('plugins.configs.statusline')",
+      'nvim-lualine/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true},
+      config = "require('plugins.configs.statusline')" 
     }
     
     use {

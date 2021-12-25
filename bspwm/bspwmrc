@@ -12,20 +12,19 @@ bspc monitor -d 1 2 3 4 5 6
 
 bspc config split_ratio          0.52
 bspc config border_width         2
-bspc config window_gap          12
+bspc config window_gap           4
 
 bspc config focus_follows_pointer true
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 # 1 > terminal
-bspc rule -a kitty desktop='^1' follow=on
-bspc rule -a Alacritty desktop='^1' follow=on
+#bspc rule -a kitty desktop='^1' follow=on
+#bspc rule -a Alacritty desktop='^1' follow=on
 
 # 2 > web
 bspc rule -a Chromium desktop='^2'
 bspc rule -a firefox desktop='^2' follow=on focus=on
-bspc rule -a Chrome desktop='^2' follow=on focus=on
 
 # 3 > code
 bspc rule -a Code desktop='^3' follow=on focus=on 
@@ -36,15 +35,12 @@ bspc rule -a discord desktop='^4'
 bspc rule -a telegram desktop='^4'
 
 # 5 > files
-bspc rule -a Ranger desktop='^5' follow=on
 bspc rule -a Thunar desktop='^5' follow=on
 
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-# $HOME/.screenlayout/dc.sh
 $HOME/.screenlayout/display.sh
-# $HOME/.screenlayout/laptopdisplay.sh
 picom &
-feh --bg-scale /home/alex/Downloads/neon.png
 $HOME/.config/polybar/launch.sh
+feh --bg-scale /home/alex/dotfiles/images/4005.png

@@ -21,9 +21,8 @@ map('n', '<C-j>', '<C-w>j', {noremap = true, silent = false})
 map('n', '<C-k>', '<C-w>k', {noremap = true, silent = false})
 map('n', '<C-l>', '<C-w>l', {noremap = true, silent = false})
 
+map('n', '<C-a>', 'ggVG', {noremap = true, silent = true})
 
-map("n", "<leader>2", ":lua require('Comment.api').toggle()<CR>", {noremap = true, silent = true})
-map("v", "<leader>2", ":lua require('Comment.api').gc(vim.fn.visualmode())<CR>", {noremap = true, silent = true})
 
 vim.cmd('inoremap <expr> <c-j> (\"\\<C-n>\")')
 vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')

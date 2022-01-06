@@ -23,10 +23,16 @@ return require('packer').startup(function()
 
     -- themes
     use {"Shatur/neovim-ayu"}
+    use {'navarasu/onedark.nvim'}
     use {"projekt0n/github-nvim-theme"}
-    use {'chriskempson/base16-vim'}
+    use {"drsooch/gruber-darker-vim"}
+    use {'shaunsingh/nord.nvim'}
+    use {'LunarVim/onedarker.nvim'}
     use {'ackyshake/Spacegray.vim'}
+    use {'eddyekofo94/gruvbox-flat.nvim'}
+    use {'kvrohit/substrata.nvim'}
 
+    -- icons
     use {
         "kyazdani42/nvim-web-devicons",
     }
@@ -35,6 +41,8 @@ return require('packer').startup(function()
         "norcalli/nvim-colorizer.lua",
         config = function() require('plugins.configs.colorizer') end,
     }
+
+    use {'mhinz/vim-startify'}
 
     -- Lsp and Autocomplete
     use {
@@ -153,11 +161,6 @@ return require('packer').startup(function()
         requires = {
             'nvim-lua/plenary.nvim'
         },
-    }
-
-    use {
-        "akinsho/toggleterm.nvim",
-        config = "require('plugins.configs.toggleterm')"
     }
 
     use {

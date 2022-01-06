@@ -1,10 +1,10 @@
 local git_status = 0
 local ui = {
-            allow_resize = true,
-            side = "left",
-            width = 25,
-            hide_root_folder = false,
-           }
+        allow_resize = true,
+        side = "left",
+        width = 25,
+        hide_root_folder = false,
+   }
 
 local g = vim.g
 
@@ -56,8 +56,8 @@ require'nvim-tree'.setup {
    ignore_ft_on_setup = { "dashboard" },
    auto_close = false,
    open_on_tab = false,
-   hijack_cursor = true,
-   update_cwd = true,
+   hijack_cursor = false,
+   update_cwd = false,
    update_focused_file = {
       enable = true,
       update_cwd = false,

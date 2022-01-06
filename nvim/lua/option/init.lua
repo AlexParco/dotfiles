@@ -5,13 +5,10 @@ vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.swapfile = false
 vim.o.hidden = true
-vim.o.termguicolors = true
-
-
 vim.wo.wrap = false
 vim.wo.number = true
 vim.wo.relativenumber = true
-
+vim.opt.termguicolors = true
 
 vim.o.tabstop = 4
 vim.bo.tabstop = 4
@@ -23,4 +20,9 @@ vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
+
+
+vim.cmd[[
+set colorcolumn=100
+]]
 

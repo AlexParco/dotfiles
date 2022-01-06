@@ -2,7 +2,7 @@
    blue:             #73d0ff;
    darkblue:         #B48EAD;
    cyan:             #95e6cb;
-   lightcyan:        #B48EAD;
+   lightcyan:        #B04C50;
    green:            #bae67e;
    red:              #ff3333;
 
@@ -11,12 +11,12 @@
    dark3:            #b3b1ad;
    dark4:            #b3b1ad;
 
-   light1:           #e6e1cf;
+   light1:           #f5f5f5;
 
-   background-color: @dark1;
-   border-color:     @dark2;
-   text-color:       @dark3;
-   dark-text-color:  @dark4;
+   background-color: #111314;
+   border-color:     #202124;
+   text-color:       @light1;
+   dark-text-color:  @light1;
    main-color:       @blue;
    highlight:        @light1;
    urgent-color:     @red;
@@ -24,12 +24,12 @@
 }
 
 window {
-   background-color: @background-color;
-   width: 33%;
+   background-color: @backgroundcolor;
+   width: 35%;
+   height: 43%;
    padding: 10px;
    fullscreen: false;
    border:  2px;
-   border-radius: 0px;
    border-color: @border-color;
 }
 
@@ -59,7 +59,7 @@ listview {
 }
 
 element {
-   padding: 4px 10px;
+    padding: 8px 10px;
 }
 
 element normal.normal {
@@ -80,6 +80,9 @@ element normal.active {
 
 element selected.normal {
     background-color: @border-color;
+    border:           1px;
+    border-color:     #333333;
+    border-radius:    5px;
     text-color:       @selected-color;
 }
 

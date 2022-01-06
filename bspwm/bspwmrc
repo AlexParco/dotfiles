@@ -1,9 +1,8 @@
 #! /bin/sh
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc config focused_border_color "#e6b450"
-bspc config normal_border_color "#0A0E14"
-bspc config active_border_color "#ffb454"
+bspc config active_border_color "#111314"
+bspc config normal_border_color "#111314"
 bspc config presel_feedback_color "#d4bfff"
 
 wmname LG3D
@@ -11,36 +10,33 @@ wmname LG3D
 bspc monitor -d 1 2 3 4 5 6
 
 bspc config split_ratio          0.52
-bspc config border_width         2
-bspc config window_gap           4
+bspc config border_width         1
+bspc config window_gap           0
 
 bspc config focus_follows_pointer true
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-# 1 > terminal
-#bspc rule -a kitty desktop='^1' follow=on
-#bspc rule -a Alacritty desktop='^1' follow=on
+# 1 > web
+bspc rule -a Chromium desktop='^1'
+bspc rule -a firefox desktop='^1' follow=on focus=on
 
-# 2 > web
-bspc rule -a Chromium desktop='^2'
-bspc rule -a firefox desktop='^2' follow=on focus=on
+# 2 > code
+bspc rule -a Code desktop='^2' follow=on focus=on 
+bspc rule -a Code follow=on focus=on 
 
-# 3 > code
-bspc rule -a Code desktop='^3' follow=on focus=on 
-bspc rule -a Zathura desktop='^3' follow=on focus=on
+# 3 > social-media
+bspc rule -a discord desktop='^3'
+bspc rule -a telegram desktop='^3'
 
-# 4 > social-media
-bspc rule -a discord desktop='^4'
-bspc rule -a telegram desktop='^4'
+# 4 > files
+bspc rule -a Thunar desktop='^4' follow=on
+bspc rule -a Emacs state=tiled
 
-# 5 > files
-bspc rule -a Thunar desktop='^5' follow=on
-
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
+# bspc rule -a Kupfer.py focus=on
+# bspc rule -a Screenkey manage=off
 
 $HOME/.screenlayout/display.sh
-picom &
+# picom &
 $HOME/.config/polybar/launch.sh
-feh --bg-scale /home/alex/dotfiles/images/4005.png
+feh --bg-scale /home/alex/dotfiles/images/3998.png

@@ -11,24 +11,32 @@ plugins=(
     git
     zsh-autosuggestions
 )
+# (cat ~/.cache/wal/sequences &)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.cache/wal/colors-tty.sh
 
 # alias
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias bspwm="nvim ~/.config/bspwm"
-alias nvimconfig="nvim ~/.config/nvim/init.vim"
+alias cfn="nvim ~/.config/nvim/init.lua"
 
 alias dcs="docker container start"
-alias gr="go run ."
+
+alias gr="go run"
+alias gb="go build"
 
 alias nivm="nvim"
 alias nvmi="nvim"
 alias v="nvim"
 alias vnim="nvim"
 alias nv="nvim"
+alias n="nvim"
+
 alias nf="neofetch"
 alias bye="shutdown now"
 alias again="reboot"
 alias cd.="cd .."
+alias emacs="emacs -nw"
+alias ls="logo-ls"

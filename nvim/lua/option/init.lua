@@ -10,12 +10,13 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.opt.termguicolors = true
 
-vim.o.tabstop = 4
-vim.bo.tabstop = 4
-vim.o.softtabstop = 4 
-vim.bo.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.bo.shiftwidth = 4
+local x = 2
+vim.o.tabstop = x
+vim.bo.tabstop = x
+vim.o.softtabstop = x 
+vim.bo.softtabstop = x
+vim.o.shiftwidth = x
+vim.bo.shiftwidth = x
 vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.expandtab = true
@@ -24,5 +25,5 @@ vim.bo.expandtab = true
 
 vim.cmd[[
 set colorcolumn=100
+set numberwidth=6
 ]]
-

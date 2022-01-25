@@ -22,6 +22,8 @@ return require('packer').startup(function()
     }
 
     -- themes
+    use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
+    use {'morhetz/gruvbox'}
     use {"Shatur/neovim-ayu"}
     use {'navarasu/onedark.nvim'}
     use {"projekt0n/github-nvim-theme"}

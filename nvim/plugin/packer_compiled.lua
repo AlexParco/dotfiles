@@ -173,6 +173,11 @@ _G.packer_plugins = {
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/gruber-darker-vim",
     url = "https://github.com/drsooch/gruber-darker-vim"
   },
+  gruvbox = {
+    loaded = true,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
   ["gruvbox-flat.nvim"] = {
     loaded = true,
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/gruvbox-flat.nvim",
@@ -276,6 +281,11 @@ _G.packer_plugins = {
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  pywal = {
+    loaded = true,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/start/pywal",
+    url = "https://github.com/AlphaTechnolog/pywal.nvim"
+  },
   ["substrata.nvim"] = {
     loaded = true,
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/substrata.nvim",
@@ -321,14 +331,14 @@ end
 time([[Setup for bufferline.nvim]], true)
 try_loadstring("\27LJ\1\2Ë\1\0\0\6\0\n\0\0164\0\0\0007\0\1\0007\0\2\0\16\1\0\0%\2\3\0%\3\4\0%\4\5\0003\5\6\0>\1\5\1\16\1\0\0%\2\3\0%\3\a\0%\4\b\0003\5\t\0>\1\5\1G\0\1\0\1\0\2\vsilent\2\fnoremap\2\30:BufferLineCyclePrev <CR>\f<S-Tab>\1\0\2\vsilent\2\fnoremap\2\30:BufferLineCycleNext <CR>\n<TAB>\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "bufferline.nvim")
 time([[Setup for bufferline.nvim]], false)
--- Setup for: nvim-lspconfig
-time([[Setup for nvim-lspconfig]], true)
-try_loadstring("\27LJ\1\2U\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0006if &ft == \"packer\" | echo \"\" | else | silent! e %\bcmd\bvimY\1\0\3\0\5\0\t4\0\0\0%\1\1\0>\0\2\0014\0\2\0007\0\3\0001\1\4\0'\2\0\0>\0\3\1G\0\1\0\0\rdefer_fn\bvim\19nvim-lspconfig\21packer_lazy_load\0", "setup", "nvim-lspconfig")
-time([[Setup for nvim-lspconfig]], false)
 -- Setup for: Comment.nvim
 time([[Setup for Comment.nvim]], true)
 try_loadstring("\27LJ\1\2F\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0%\1\3\0>\0\2\1G\0\1\0\17Comment.nvim\vloader\vpacker\frequireµ\2\1\0\6\0\f\0\0214\0\0\0007\0\1\0007\0\2\0004\1\0\0007\1\3\0011\2\4\0'\3\0\0>\1\3\1\16\1\0\0%\2\5\0%\3\6\0%\4\a\0003\5\b\0>\1\5\1\16\1\0\0%\2\t\0%\3\6\0%\4\n\0003\5\v\0>\1\5\1G\0\1\0\1\0\2\vsilent\2\fnoremap\2L:lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>\6v\1\0\2\vsilent\2\fnoremap\2>:lua require('Comment.api').toggle_current_linewise()<CR>\14<leader>2\6n\0\rdefer_fn\20nvim_set_keymap\bapi\bvim\0", "setup", "Comment.nvim")
 time([[Setup for Comment.nvim]], false)
+-- Setup for: nvim-lspconfig
+time([[Setup for nvim-lspconfig]], true)
+try_loadstring("\27LJ\1\2U\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0006if &ft == \"packer\" | echo \"\" | else | silent! e %\bcmd\bvimY\1\0\3\0\5\0\t4\0\0\0%\1\1\0>\0\2\0014\0\2\0007\0\3\0001\1\4\0'\2\0\0>\0\3\1G\0\1\0\0\rdefer_fn\bvim\19nvim-lspconfig\21packer_lazy_load\0", "setup", "nvim-lspconfig")
+time([[Setup for nvim-lspconfig]], false)
 -- Setup for: nvim-tree.lua
 time([[Setup for nvim-tree.lua]], true)
 try_loadstring("\27LJ\1\2w\0\0\6\0\a\0\n4\0\0\0007\0\1\0007\0\2\0\16\1\0\0%\2\3\0%\3\4\0%\4\5\0003\5\6\0>\1\5\1G\0\1\0\1\0\2\vsilent\2\fnoremap\2\24:NvimTreeToggle<CR>\n<C-n>\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "nvim-tree.lua")

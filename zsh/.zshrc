@@ -4,8 +4,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/alex/.oh-my-zsh"
 export TERM="xterm-256color"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-ZSH_THEME="lambda"
+ZSH_THEME="gallifrey"
 
 plugins=(
     git
@@ -14,7 +16,6 @@ plugins=(
 # (cat ~/.cache/wal/sequences &)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.cache/wal/colors-tty.sh
 
 # alias
 alias zshconfig="nvim ~/.zshrc"

@@ -6,10 +6,11 @@ require('plugins')
 
 require('plugins.configs.lspconfig')
 
-vim.g.gruvbox_flat_style = "hard"
-vim.cmd[[colorscheme gruvbox-flat]]
-
--- vim.cmd[[colorscheme pywal]]
--- vim.cmd[[colorscheme ayu-dark]]
-
--- vim.cmd[[highlight Normal ctermbg=NONE guibg=NONE]]
+vim.g.vscode_style = "dark"
+vim.g.vscode_disable_nvimtree_bg = true 
+vim.cmd[[
+" let g:gruvbox_material_background = 'hard'
+" let g:gruvbox_material_better_performance = 1
+colorscheme vscode 
+" source $HOME/.config/nvim/spacegray.vim
+]]

@@ -10,10 +10,9 @@ end
 
 return require('packer').startup(function()
     use "wbthomason/packer.nvim"
-
+    
     -- coc for discord presence
     use {'neoclide/coc.nvim', branch = 'release'}
-
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
@@ -22,18 +21,11 @@ return require('packer').startup(function()
     }
 
     -- themes
-    use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
-    use {'morhetz/gruvbox'}
-    use {"Shatur/neovim-ayu"}
-    use {'navarasu/onedark.nvim'}
     use {"projekt0n/github-nvim-theme"}
-    use {"drsooch/gruber-darker-vim"}
-    use {'shaunsingh/nord.nvim'}
-    use {'LunarVim/onedarker.nvim'}
     use {'ackyshake/Spacegray.vim'}
     use {'eddyekofo94/gruvbox-flat.nvim'}
-    use {'kvrohit/substrata.nvim'}
-
+    use {'sainnhe/gruvbox-material'}
+    use {'Mofiqul/vscode.nvim'}
     -- icons
     use {
         "kyazdani42/nvim-web-devicons",

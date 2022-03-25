@@ -22,7 +22,7 @@
    urgent-color:     @red;
    selected-color:   @lightcyan;
 
-	 font: "Iosevka Nerd Font 12"; 	
+	 font: "Iosevka Nerd Font 14"; 	
 }
 
 window {

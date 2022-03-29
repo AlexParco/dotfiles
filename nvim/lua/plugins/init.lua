@@ -24,8 +24,10 @@ return require('packer').startup(function()
     use {"projekt0n/github-nvim-theme"}
     use {'ackyshake/Spacegray.vim'}
     use {'eddyekofo94/gruvbox-flat.nvim'}
+    -- use {'Mofiqul/vscode.nvim'}
+    use {"rebelot/kanagawa.nvim"}
     use {'sainnhe/gruvbox-material'}
-    use {'Mofiqul/vscode.nvim'}
+
     -- icons
     use {
         "kyazdani42/nvim-web-devicons",

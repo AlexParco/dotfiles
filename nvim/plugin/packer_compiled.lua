@@ -186,6 +186,11 @@ _G.packer_plugins = {
     path = "/home/alex/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lualine.nvim"] = {
     config = { "require('plugins.configs.statusline')" },
     loaded = true,
@@ -201,7 +206,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "LuaSnip", "nvim-autopairs" },
+    after = { "nvim-autopairs", "LuaSnip" },
     loaded = true,
     only_config = true
   },
@@ -260,11 +265,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/vim-startify",
     url = "https://github.com/mhinz/vim-startify"
-  },
-  ["vscode.nvim"] = {
-    loaded = true,
-    path = "/home/alex/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 
@@ -297,42 +297,42 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Setup for: nvim-tree.lua
-time([[Setup for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\nw\0\0\a\0\a\0\n6\0\0\0009\0\1\0009\0\2\0\18\1\0\0'\3\3\0'\4\4\0'\5\5\0005\6\6\0B\1\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\2\24:NvimTreeToggle<CR>\n<C-n>\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "nvim-tree.lua")
-time([[Setup for nvim-tree.lua]], false)
 -- Setup for: nvim-lspconfig
 time([[Setup for nvim-lspconfig]], true)
 try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006if &ft == \"packer\" | echo \"\" | else | silent! e %\bcmd\bvimY\1\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0003\2\4\0)\3\0\0B\0\3\1K\0\1\0\0\rdefer_fn\bvim\19nvim-lspconfig\21packer_lazy_load\0", "setup", "nvim-lspconfig")
 time([[Setup for nvim-lspconfig]], false)
 -- Setup for: Comment.nvim
 time([[Setup for Comment.nvim]], true)
-try_loadstring("\27LJ\2\nF\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\17Comment.nvim\vloader\vpacker\frequireµ\2\1\0\a\0\f\0\0216\0\0\0009\0\1\0009\0\2\0006\1\0\0009\1\3\0013\3\4\0)\4\0\0B\1\3\1\18\1\0\0'\3\5\0'\4\6\0'\5\a\0005\6\b\0B\1\5\1\18\1\0\0'\3\t\0'\4\6\0'\5\n\0005\6\v\0B\1\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\2L:lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>\6v\1\0\2\fnoremap\2\vsilent\2>:lua require('Comment.api').toggle_current_linewise()<CR>\14<leader>2\6n\0\rdefer_fn\20nvim_set_keymap\bapi\bvim\0", "setup", "Comment.nvim")
+try_loadstring("\27LJ\2\nF\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\17Comment.nvim\vloader\vpacker\frequireµ\2\1\0\a\0\f\0\0216\0\0\0009\0\1\0009\0\2\0006\1\0\0009\1\3\0013\3\4\0)\4\0\0B\1\3\1\18\1\0\0'\3\5\0'\4\6\0'\5\a\0005\6\b\0B\1\5\1\18\1\0\0'\3\t\0'\4\6\0'\5\n\0005\6\v\0B\1\5\1K\0\1\0\1\0\2\vsilent\2\fnoremap\2L:lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>\6v\1\0\2\vsilent\2\fnoremap\2>:lua require('Comment.api').toggle_current_linewise()<CR>\14<leader>2\6n\0\rdefer_fn\20nvim_set_keymap\bapi\bvim\0", "setup", "Comment.nvim")
 time([[Setup for Comment.nvim]], false)
+-- Setup for: nvim-tree.lua
+time([[Setup for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\nw\0\0\a\0\a\0\n6\0\0\0009\0\1\0009\0\2\0\18\1\0\0'\3\3\0'\4\4\0'\5\5\0005\6\6\0B\1\5\1K\0\1\0\1\0\2\vsilent\2\fnoremap\2\24:NvimTreeToggle<CR>\n<C-n>\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "nvim-tree.lua")
+time([[Setup for nvim-tree.lua]], false)
 -- Setup for: bufferline.nvim
 time([[Setup for bufferline.nvim]], true)
-try_loadstring("\27LJ\2\nË\1\0\0\a\0\n\0\0166\0\0\0009\0\1\0009\0\2\0\18\1\0\0'\3\3\0'\4\4\0'\5\5\0005\6\6\0B\1\5\1\18\1\0\0'\3\3\0'\4\a\0'\5\b\0005\6\t\0B\1\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\2\30:BufferLineCyclePrev <CR>\f<S-Tab>\1\0\2\fnoremap\2\vsilent\2\30:BufferLineCycleNext <CR>\n<TAB>\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "bufferline.nvim")
+try_loadstring("\27LJ\2\nË\1\0\0\a\0\n\0\0166\0\0\0009\0\1\0009\0\2\0\18\1\0\0'\3\3\0'\4\4\0'\5\5\0005\6\6\0B\1\5\1\18\1\0\0'\3\3\0'\4\a\0'\5\b\0005\6\t\0B\1\5\1K\0\1\0\1\0\2\vsilent\2\fnoremap\2\30:BufferLineCyclePrev <CR>\f<S-Tab>\1\0\2\vsilent\2\fnoremap\2\30:BufferLineCycleNext <CR>\n<TAB>\6n\20nvim_set_keymap\bapi\bvim\0", "setup", "bufferline.nvim")
 time([[Setup for bufferline.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('plugins.configs.gitsigns')
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.colorizer\frequire\0", "config", "nvim-colorizer.lua")
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require('plugins.configs.cmp')
-time([[Config for nvim-cmp]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('plugins.configs.statusline')
-time([[Config for lualine.nvim]], false)
 -- Config for: nvim-lsp-installer
 time([[Config for nvim-lsp-installer]], true)
 require('plugins.configs.lspinstall')
 time([[Config for nvim-lsp-installer]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.colorizer\frequire\0", "config", "nvim-colorizer.lua")
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('plugins.configs.statusline')
+time([[Config for lualine.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('plugins.configs.gitsigns')
+time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('plugins.configs.cmp')
+time([[Config for nvim-cmp]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-autopairs ]]

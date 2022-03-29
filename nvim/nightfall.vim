@@ -1,9 +1,5 @@
 " -----------------------------------------------------------------------------
-" Name:         Tokyo Night
-" Description:  A clean, dark Vim theme that celebrates the lights of downtown Tokyo at night (Based on the VS Code version of the theme)
-" Author:       Ghifari Taqiuddin <mghifarit53@gmail.com>
-" Website:      https://github.com/ghifarit53/tokyonight.vim/
-" License:      MIT
+" Name:         Modified Nightfall
 " -----------------------------------------------------------------------------
 
 " Initialization: {{{
@@ -16,69 +12,42 @@ set background=dark
 let s:t_Co = exists('&t_Co') && !empty(&t_Co) && &t_Co > 1 ? &t_Co : 2
 let s:tmux = executable('tmux') && $TMUX !=# ''
 
-let g:colors_name = 'tokyonight'
+let g:colors_name = 'nightfall'
 " }}}
 " Configuration: {{{
 let s:configuration = {}
-let s:configuration.style = get(g:, 'tokyonight_style', 'night')
-let s:configuration.transparent_background = get(g:, 'tokyonight_transparent_background', 0)
-let s:configuration.menu_selection_background = get(g:, 'tokyonight_menu_selection_background', 'green')
-let s:configuration.disable_italic_comment = get(g:, 'tokyonight_disable_italic_comment', 0)
-let s:configuration.enable_italic = get(g:, 'tokyonight_enable_italic', 0)
-let s:configuration.cursor = get(g:, 'tokyonight_cursor', 'auto')
-let s:configuration.current_word = get(g:, 'tokyonight_current_word', get(g:, 'tokyonight_transparent_background', 0) == 0 ? 'grey background' : 'bold')
+let s:configuration.transparent_background = get(g:, 'nigthfall_transparent_background', 0)
+let s:configuration.menu_selection_background = get(g:, 'nigthfall_menu_selection_background', 'green')
+let s:configuration.disable_italic_comment = get(g:, 'nigthfall_disable_italic_comment', 0)
+let s:configuration.enable_italic = get(g:, 'nigthfall_enable_italic', 1)
+let s:configuration.cursor = get(g:, 'nigthfall_cursor', 'auto')
+let s:configuration.current_word = get(g:, 'nigthfall_current_word', get(g:, 'tokyonight_transparent_background', 0) == 0 ? 'grey background' : 'bold')
 " }}}
 " Palette: {{{
 "
-if s:configuration.style ==# 'night'
-  let s:palette = {
-        \ 'black':      ['#06080a',   '237',  'DarkGrey'],
-        \ 'bg0':        ['#101010',   '235',  'Black'],
-        \ 'bg1':        ['#232433',   '236',  'DarkGrey'],
-        \ 'bg2':        ['#2a2b3d',   '236',  'DarkGrey'],
-        \ 'bg3':        ['#32344a',   '237',  'DarkGrey'],
-        \ 'bg4':        ['#3b3d57',   '237',  'Grey'],
-        \ 'bg_red':     ['#e19090',   '203',  'Red'],
-        \ 'diff_red':   ['#803d49',   '52',   'DarkRed'],
-        \ 'bg_green':   ['#b9f27c',   '107',  'Green'],
-        \ 'diff_green': ['#618041',   '22',   'DarkGreen'],
-        \ 'bg_blue':    ['#7da6ff',   '110',  'Blue'],
-        \ 'diff_blue':  ['#3e5380',   '17',   'DarkBlue'],
-        \ 'fg':         ['#dcd9c0',   '250',  'White'],
-        \ 'red':        ['#e19090',   '203',  'Red'],
-        \ 'orange':     ['#FF9E64',   '215',  'Orange'],
-        \ 'yellow':     ['#e19090',   '179',  'Yellow'],
-        \ 'green':      ['#DCDCAA',   '107',  'Green'],
-        \ 'blue':       ['#7AA2F7',   '110',  'Blue'],
-        \ 'purple':     ['#7AA2F7',   '176',  'Magenta'],
-        \ 'grey':       ['#444B6A',   '246',  'LightGrey'],
-        \ 'none':       ['NONE',      'NONE', 'NONE']
-        \ }
-elseif s:configuration.style ==# 'storm'
-  let s:palette = {
-        \ 'black':      ['#06080a',   '237',  'DarkGrey'],
-        \ 'bg0':        ['#24283b',   '235',  'Black'],
-        \ 'bg1':        ['#282d42',   '236',  'DarkGrey'],
-        \ 'bg2':        ['#2f344d',   '236',  'DarkGrey'],
-        \ 'bg3':        ['#333954',   '237',  'DarkGrey'],
-        \ 'bg4':        ['#3a405e',   '237',  'Grey'],
-        \ 'bg_red':     ['#ff7a93',   '203',  'Red'],
-        \ 'diff_red':   ['#803d49',   '52',   'DarkRed'],
-        \ 'bg_green':   ['#b9f27c',   '107',  'Green'],
-        \ 'diff_green': ['#618041',   '22',   'DarkGreen'],
-        \ 'bg_blue':    ['#7da6ff',   '110',  'Blue'],
-        \ 'diff_blue':  ['#3e5380',   '17',   'DarkBlue'],
-        \ 'fg':         ['#a9b1d6',   '250',  'White'],
-        \ 'red':        ['#F7768E',   '203',  'Red'],
-        \ 'orange':     ['#FF9E64',   '215',  'Orange'],
-        \ 'yellow':     ['#E0AF68',   '179',  'Yellow'],
-        \ 'green':      ['#9ECE6A',   '107',  'Green'],
-        \ 'blue':       ['#7AA2F7',   '110',  'Blue'],
-        \ 'purple':     ['#ad8ee6',   '176',  'Magenta'],
-        \ 'grey':       ['#444B6A',   '246',  'LightGrey'],
-        \ 'none':       ['NONE',      'NONE', 'NONE']
-        \ }
-endif
+let s:palette = {
+      \ 'black':      ['#505050',   '237',  'DarkGrey'],
+      \ 'bg0':        ['#101010',   '235',  'Black'],
+      \ 'bg1':        ['#333333',   '236',  'DarkGrey'],
+      \ 'bg2':        ['#2a2b3d',   '236',  'DarkGrey'],
+      \ 'bg3':        ['#353535',   '237',  'DarkGrey'],
+      \ 'bg4':        ['#3b3d57',   '237',  'Grey'],
+      \ 'bg_red':     ['#e19090',   '203',  'Red'],
+      \ 'diff_red':   ['#803d49',   '52',   'DarkRed'],
+      \ 'bg_green':   ['#a1b56c',   '107',  'Green'],
+      \ 'diff_green': ['#618041',   '22',   'DarkGreen'],
+      \ 'bg_blue':    ['#7da6ff',   '110',  'Blue'],
+      \ 'diff_blue':  ['#3e538i1',   '17',   'DarkBlue'],
+      \ 'fg':         ['#dcd9c0',   '250',  'White'],
+      \ 'red':        ['#e19090',   '203',  'Red'],
+      \ 'orange':     ['#FF9E64',   '215',  'Orange'],
+      \ 'yellow':     ['#e19090',   '179',  'Yellow'],
+      \ 'green':      ['#DCDCAA',   '107',  'Green'],
+      \ 'blue':       ['#7AA2F7',   '110',  'Blue'],
+      \ 'purple':     ['#7AA2F7',   '176',  'Magenta'],
+      \ 'grey':       ['#585858',   '246',  'LightGrey'],
+      \ 'none':       ['NONE',      'NONE', 'NONE']
+      \ }
 
 " }}}
 " Function: {{{
@@ -1718,15 +1687,6 @@ if get(g:, 'indent_guides_auto_colors', 1) == 0
   call s:HL('IndentGuidesEven', s:palette.bg0, s:palette.bg2)
 endif
 " }}}
-" kshenoy/vim-signature {{{
-if s:configuration.transparent_background
-  call s:HL('SignatureMarkText', s:palette.blue, s:palette.none)
-  call s:HL('SignatureMarkerText', s:palette.red, s:palette.none)
-else
-  call s:HL('SignatureMarkText', s:palette.blue, s:palette.bg1)
-  call s:HL('SignatureMarkerText', s:palette.red, s:palette.bg1)
-endif
-" }}}
 " mhinz/vim-startify{{{
 highlight! link StartifyBracket Grey
 highlight! link StartifyFile Green
@@ -1742,12 +1702,6 @@ highlight! link BufTabLineCurrent TabLineSel
 highlight! link BufTabLineActive TabLine
 highlight! link BufTabLineHidden TabLineFill
 highlight! link BufTabLineFill TabLineFill
-" }}}
-" liuchengxu/vim-which-key{{{
-highlight! link WhichKey Red
-highlight! link WhichKeySeperator Green
-highlight! link WhichKeyGroup Orange
-highlight! link WhichKeyDesc Blue
 " }}}
 " skywind3000/quickmenu.vim{{{
 highlight! link QuickmenuOption Green
@@ -1775,22 +1729,6 @@ call s:HL('QuickScopeSecondary', s:palette.blue, s:palette.none, 'underline')
 " }}}
 " APZelos/blamer.nvim {{{
 highlight! link Blamer Grey
-" }}}
-" cohama/agit.vim {{{
-highlight! link agitTree Grey
-highlight! link agitDate Green
-highlight! link agitRemote Red
-highlight! link agitHead Blue
-highlight! link agitRef Orange
-highlight! link agitTag Blue
-highlight! link agitStatFile Blue
-highlight! link agitStatRemoved Red
-highlight! link agitStatAdded Green
-highlight! link agitStatMessage Orange
-highlight! link agitDiffRemove diffRemoved
-highlight! link agitDiffAdd diffAdded
-highlight! link agitDiffHeader Blue
-highlight! link agitAuthor Yellow
 " }}}
 " }}}
 " Terminal: {{{

@@ -159,10 +159,4 @@ return require('packer').startup(function()
         },
     }
 
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "BufRead",
-        config = "require('plugins.configs.indent')",
-    }
-
 end)

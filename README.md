@@ -9,7 +9,7 @@ My personal configurations for Arch Linux and bspwm.
  | Window manager       | bspwm       |
  | Statubar             | polybar     |
  | Application launcher | rofi        |
- | Terminal             | Kitty       |
+ | Terminal             | Alacritty   |
  | Shell                | zsh         |
  | Editor               | neovim      |
 

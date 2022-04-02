@@ -33,21 +33,21 @@ let g:colors_name = 'spacegray'
 
 " Colorscheme definitions {{{1
 if g:spacegray_low_contrast
-  hi Normal        ctermbg=235  ctermfg=250    guibg=#242424  guifg=#B3B8C4  cterm=NONE      gui=NONE
+  hi Normal        ctermbg=235  ctermfg=250    guibg=#242424  guifg=#dcd9c0  cterm=NONE      gui=NONE
 else
-  hi Normal        ctermbg=233  ctermfg=250    guibg=#111314  guifg=#B3B8C4  cterm=NONE      gui=NONE
+  hi Normal        ctermbg=233  ctermfg=250    guibg=#111314  guifg=#dcd9c0  cterm=NONE      gui=NONE
 endif
 
 if g:spacegray_use_italics
   hi Comment       ctermbg=NONE ctermfg=242    guibg=NONE     guifg=#657785  cterm=italic    gui=italic
 else
-  hi Comment       ctermbg=NONE ctermfg=242    guibg=NONE     guifg=#657785  cterm=NONE      gui=NONE
+  hi Comment       ctermbg=NONE ctermfg=242    guibg=NONE     guifg=#525252  cterm=NONE      gui=NONE
 endif
 
 hi Conceal         ctermbg=NONE ctermfg=250    guibg=NONE     guifg=#B3B8C4  cterm=NONE      gui=NONE
 hi NonText         ctermbg=NONE ctermfg=8      guibg=NONE     guifg=#3E4853  cterm=NONE      gui=NONE
 hi Title           ctermbg=NONE ctermfg=250    guibg=NONE     guifg=#B3B8C4  cterm=bold      gui=bold
-hi Constant        ctermbg=NONE ctermfg=130    guibg=NONE     guifg=#C5735E  cterm=NONE      gui=NONE
+hi Constant        ctermbg=NONE ctermfg=130    guibg=NONE     guifg=#daa6c3  cterm=NONE      gui=NONE
 hi Function        ctermbg=NONE ctermfg=9      guibg=NONE     guifg=#CC6666  cterm=NONE      gui=NONE
 hi Identifier      ctermbg=NONE ctermfg=179    guibg=NONE     guifg=#E5C078  cterm=NONE      gui=NONE
 hi PreProc         ctermbg=NONE ctermfg=109    guibg=NONE     guifg=#85A7A5  cterm=NONE      gui=NONE
@@ -153,7 +153,6 @@ hi link Number              Constant
 
 hi link Float               Number
 
-
 hi link Define              Preproc
 hi link Include             Preproc
 hi link Macro               Preproc
@@ -178,6 +177,17 @@ hi link SpecialChar         Special
 hi link Tag                 Special
 
 hi link Terminal            Normal
+
+" JavaScript
+" highlight! link javaScriptNull          Constant 
+" highlight! link javaScriptIdentifier    Question
+" highlight! link javaScriptParens        Normal 
+" highlight! link javaScriptBraces        Normal  
+" highlight! link javaScriptNumber        Constant 
+" highlight! link javaScriptLabel         Red
+" highlight! link javaScriptFunction      Function
+" highlight! link javaScriptGlobal        Question
+" highlight! link javaScriptMessage       Question
 
 " HTML
 hi link htmlEndTag          htmlTagName

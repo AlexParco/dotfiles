@@ -13,6 +13,7 @@ return require('packer').startup(function()
     
     -- coc for discord presence
     use {'neoclide/coc.nvim', branch = 'release'}
+
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
@@ -24,7 +25,8 @@ return require('packer').startup(function()
     use {"projekt0n/github-nvim-theme"}
     use {'ackyshake/Spacegray.vim'}
     use {'eddyekofo94/gruvbox-flat.nvim'}
-    -- use {'Mofiqul/vscode.nvim'}
+    use {'Mofiqul/vscode.nvim'}
+		use {'dikiaap/minimalist'}
     use {"rebelot/kanagawa.nvim"}
     use {'sainnhe/gruvbox-material'}
 
@@ -37,8 +39,6 @@ return require('packer').startup(function()
         "norcalli/nvim-colorizer.lua",
         config = function() require('plugins.configs.colorizer') end,
     }
-
-    use {'mhinz/vim-startify'}
 
     -- Lsp and Autocomplete
     use {
@@ -159,4 +159,5 @@ return require('packer').startup(function()
         },
     }
 
+		use {"kshenoy/vim-signature"}
 end)

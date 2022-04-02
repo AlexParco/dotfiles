@@ -29,12 +29,12 @@ let s:palette = {
       \ 'black':      ['#505050',   '237',  'DarkGrey'],
       \ 'bg0':        ['#101010',   '235',  'Black'],
       \ 'bg1':        ['#333333',   '236',  'DarkGrey'],
-      \ 'bg2':        ['#2a2b3d',   '236',  'DarkGrey'],
+      \ 'bg2':        ['#333333',   '236',  'DarkGrey'],
       \ 'bg3':        ['#353535',   '237',  'DarkGrey'],
       \ 'bg4':        ['#3b3d57',   '237',  'Grey'],
       \ 'bg_red':     ['#e19090',   '203',  'Red'],
       \ 'diff_red':   ['#803d49',   '52',   'DarkRed'],
-      \ 'bg_green':   ['#a1b56c',   '107',  'Green'],
+      \ 'bg_green':   ['#e6b489',   '107',  'Green'],
       \ 'diff_green': ['#618041',   '22',   'DarkGreen'],
       \ 'bg_blue':    ['#7da6ff',   '110',  'Blue'],
       \ 'diff_blue':  ['#3e538i1',   '17',   'DarkBlue'],
@@ -43,8 +43,8 @@ let s:palette = {
       \ 'orange':     ['#FF9E64',   '215',  'Orange'],
       \ 'yellow':     ['#e19090',   '179',  'Yellow'],
       \ 'green':      ['#DCDCAA',   '107',  'Green'],
-      \ 'blue':       ['#7AA2F7',   '110',  'Blue'],
-      \ 'purple':     ['#7AA2F7',   '176',  'Magenta'],
+      \ 'blue':       ['#daa6c3',   '110',  'Blue'],
+      \ 'purple':     ['#e19090',   '176',  'Magenta'],
       \ 'grey':       ['#585858',   '246',  'LightGrey'],
       \ 'none':       ['NONE',      'NONE', 'NONE']
       \ }
@@ -176,8 +176,8 @@ call s:HL('WarningMsg', s:palette.yellow, s:palette.none, 'bold')
 call s:HL('ModeMsg', s:palette.fg, s:palette.none, 'bold')
 call s:HL('MoreMsg', s:palette.blue, s:palette.none, 'bold')
 call s:HL('IncSearch', s:palette.bg0, s:palette.bg_red)
-call s:HL('Search', s:palette.bg0, s:palette.bg_green)
-call s:HL('MatchParen', s:palette.none, s:palette.bg4)
+call s:HL('Search', s:palette.bg0, s:palette.bg_red, 'bold')
+call s:HL('MatchParen', s:palette.bg1, s:palette.bg4)
 call s:HL('NonText', s:palette.bg4, s:palette.none)
 call s:HL('Whitespace', s:palette.bg4, s:palette.none)
 call s:HL('SpecialKey', s:palette.bg4, s:palette.none)
@@ -260,7 +260,7 @@ call s:HL('SpecialChar', s:palette.purple, s:palette.none)
 call s:HL('Boolean', s:palette.purple, s:palette.none)
 call s:HL('String', s:palette.yellow, s:palette.none)
 call s:HL('Character', s:palette.yellow, s:palette.none)
-call s:HL('Number', s:palette.purple, s:palette.none)
+call s:HL('Number', s:palette.blue, s:palette.none)
 call s:HL('Float', s:palette.purple, s:palette.none)
 call s:HL('Function', s:palette.green, s:palette.none)
 call s:HL('Operator', s:palette.red, s:palette.none)
@@ -1772,3 +1772,4 @@ endif
 " }}}
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:
+

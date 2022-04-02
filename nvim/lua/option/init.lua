@@ -10,20 +10,21 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.opt.termguicolors = true
 
+
 local x = 2
 vim.o.tabstop = x
-vim.bo.tabstop = x
 vim.o.softtabstop = x 
-vim.bo.softtabstop = x
 vim.o.shiftwidth = x
-vim.bo.shiftwidth = x
 vim.o.autoindent = true
-vim.bo.autoindent = true
-vim.o.expandtab = true
-vim.bo.expandtab = true
 
 
 vim.cmd[[
-set colorcolumn=100
+autocmd Filetype go setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype ruby setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype php setlocal ts=4 sw=4 sts=4 expandtab
+
+set colorcolumn=120
 set numberwidth=6
+set hlsearch
 ]]

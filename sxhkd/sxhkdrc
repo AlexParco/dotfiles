@@ -25,17 +25,17 @@ alt + Tab
 
 # explorer
 super + e
-	Thunar
+	pcmanfm
 
 # Audio
 XF86AudioLowerVolume
-	pamixer --decrease 5
+	pactl set-sink-volume @DEFAULT_SINK@ -10%	
 
 XF86AudioRaiseVolume
-	pamixer --increase 5
-	
+	pactl set-sink-volume @DEFAULT_SINK@ +10%	
+
 XF86AudioMute
-	pamixer --toggle-mute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Brightness
 XF86MonBrightnessUp

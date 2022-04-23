@@ -1,8 +1,9 @@
 #!/bin/sh
 
-xsetroot -cursor_name left_ptr
-sxhkd &
-exec bspwm
+# xsetroot -cursor_name left_ptr
+# sxhkd &
+# exec bspwm
 
-# dont use i3 never jeje 
-# exec i3
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+exec i3
+

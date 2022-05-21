@@ -36,7 +36,7 @@ bspc rule -a telegram desktop='^3'
 # 4 > files
 bspc rule -a Thunar desktop='^4' follow=on
 
-$HOME/.screenlayout/display.sh
-picom &
+#picom &
+feh --bg-scale /home/alex/dotfiles/images/4006.png
 $HOME/.config/polybar/launch.sh
-feh --bg-scale /home/alex/dotfiles/images/29245.jpg
+

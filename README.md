@@ -1,15 +1,14 @@
 # Dotfiles
 
-My personal configurations for Arch Linux and bspwm.
+My personal configurations for Arch Linux.
 
 ## Sytem
 
  | Component            | Description |
  | -------------------- | ----------- |
- | Window manager       | bspwm       |
- | Statubar             | polybar     |
+ | Window manager       | i3          |
  | Application launcher | rofi        |
- | Terminal             | Alacritty   |
+ | Terminal             | Kitty       |
  | Shell                | zsh         |
  | Editor               | neovim      |
 

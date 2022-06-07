@@ -1,35 +1,77 @@
-local options = {
-  backup = false,
-  clipboard = "unnamedplus",
-  cmdheight = 1,
-  completeopt = { "menuone", "noselect" }, 
-  fileencoding = "utf-8",
-  hlsearch = true,
-  ignorecase = true,
-  mouse = "a",
-  pumheight = 10,
-  showmode = false,
-  smartcase = true,
-  cursorline = false,
-  smartindent = true,
-  termguicolors = true,
-  expandtab = true,
-  swapfile = false,
-  shiftwidth = 4,
-  tabstop = 4,
-  number = true,
-  relativenumber = true,
-  numberwidth = 4,
-  wrap = false,
-  laststatus = 0
+g.mapleader = ','
+
+-- basic
+opt.scrolloff = 3
+opt.mouse = 'a'
+opt.title = true
+opt.clipboard = 'unnamedplus'
+opt.swapfile = false
+opt.undofile = true
+opt.cmdheight = 1
+opt.termguicolors = true
+opt.showmode = false
+opt.cul = true
+
+-- timeout stuff
+opt.updatetime = 300
+opt.timeout = true
+opt.timeoutlen = 500
+opt.ttimeoutlen = 10
+
+-- status, tab, number, sign line
+opt.ruler = false
+opt.laststatus = 2
+opt.number = true
+opt.numberwidth = 1
+opt.relativenumber = true
+opt.signcolumn = "yes"
+
+-- window, buffer, tabs
+opt.switchbuf = "newtab"
+opt.splitbelow = true
+opt.splitright = true
+opt.hidden = true
+opt.fillchars = {
+  vert = " ",
+  eob = " ",
+  diff = " ",
+  msgsep = " "
 }
 
-vim.opt.shortmess:append "c"
+-- text formatting
+opt.expandtab = true
+opt.shiftwidth = 4
+opt.tabstop = 4
+opt.smartindent = true
+opt.showmatch = true
+opt.smartcase = true
+opt.whichwrap:append "<>[]hl"
 
-for k, v in pairs(options) do
-  vim.opt[k] = v
+-- remove intro
+opt.shortmess:append "sI"
+
+-- disable inbuilt vim plugins
+local built_ins = {
+  "2html_plugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "matchit",
+  "tar",
+  "tarPlugin",
+  "rrhelper",
+  "spellfile_plugin",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
+}
+
+for _, plugin in pairs(built_ins) do
+  g["loaded_" .. plugin] = 1
 end
-
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

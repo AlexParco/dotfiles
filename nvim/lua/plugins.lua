@@ -41,6 +41,8 @@ require('packer').startup {
     
     -- UI
     use 'RRethy/nvim-base16'
+    use 'morhetz/gruvbox'
+
     use {
       'kyazdani42/nvim-tree.lua',
        requires = {

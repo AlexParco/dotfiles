@@ -54,7 +54,7 @@ bufferline.setup {
       guifg = color.base00,
       guibg = color.base00,
     },
-    
+
     -- modified
     modified = {
       guifg = color.base03,

@@ -4,7 +4,7 @@ cmd = vim.cmd
 opt = vim.opt
 g = vim.g
 
-_G.theme = "material"
+_G.theme = "gruvbox"
 
 local modules = {
   'options',
@@ -25,4 +25,13 @@ end
 -- Auto commands
 cmd [[
   au TermOpen term://* setlocal nonumber norelativenumber signcolumn=no | setfiletype terminal
+  colorscheme gruvbox
+  hi Normal guibg=none 
+  hi SignColumn guibg=none
+  hi CursorLine guibg=none
+  hi CursorLineNr guibg=none
+  hi StatusLine guifg=#141414 guibg=#cecece 
+  hi Visual guibg=#242424 gui=none
+  hi VertSplit guibg=none
+  :set fillchars+=vert:\|
 ]]

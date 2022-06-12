@@ -20,7 +20,7 @@ end
 local function hl(highlight, fg, bg)
   if fg == nil then fg = "none" end
   if bg == nil then bg = "none" end
-  cmd("hi " .. highlight .. " guifg=" .. fg .. " guibg=" .. bg)
+  cmd("hi " .. highlight .. " guifg=" .. fg .. " guibg=" .. bg .. " gui=none")
 end
 
 -- Status Line
@@ -55,7 +55,6 @@ hl("TelescopePromptNormal", nil, color.base01)
 hl("TelescopePromptPrefix", color.base08, color.base01)
 hl("TelescopeSelection", nil, color.base01)
 
-
 -- Menu
 hl("Pmenu", nil, color.base01)
 hl("PmenuSbar", nil, color.base01)
@@ -65,7 +64,7 @@ hl("PmenuSel", nil, color.base02)
 -- CMP
 hl("CmpItemAbbrMatch", color.base05)
 hl("CmpItemAbbrMatchFuzzy", color.base05)
-hl("CmpItemAbbr", color.base03)
+hl("CmpItemAbbr", color.base04)
 hl("CmpItemKind", color.base0E)
 hl("CmpItemMenu", color.base0E)
 
@@ -77,3 +76,4 @@ hl("LineNr", color.base03)
 -- Others
 hl("NormalFloat", nil, color.base01)
 hl("FloatBorder", color.base01, color.base01)
+

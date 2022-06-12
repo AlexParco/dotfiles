@@ -36,7 +36,7 @@ map("n", "<leader>vs", ":vs<CR>")
 
 -- Terminal
 map("n", "<leader>v", ":vs +terminal | startinsert<CR>")
-map("n", "<C-j>", ":split +terminal | startinsert<CR>")
+map("n", "<leader>j", ":split +terminal | startinsert<CR>")
 
 -- hl
 map("n", "<leader>h", ":set hlsearch!<CR>")
@@ -77,4 +77,3 @@ map("i", "<C-A>", "<Home>")
 
 map("v", "<", "<gv")
 map("v", ">", ">gv")
-

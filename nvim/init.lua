@@ -9,8 +9,8 @@ _G.theme = "gruvbox"
 local modules = {
   'options',
   'mappings',
-  'statusline',
   'colors',
+  'statusline',
   'plugins',
   'lsp'
 }
@@ -25,13 +25,31 @@ end
 -- Auto commands
 cmd [[
   au TermOpen term://* setlocal nonumber norelativenumber signcolumn=no | setfiletype terminal
-  colorscheme gruvbox
-  hi Normal guibg=none 
-  hi SignColumn guibg=none
+  set t_Co=256
+  colorscheme everforest
+  hi Normal guibg=none
+  hi EndOfBuffer guibg=none
+
   hi CursorLine guibg=none
-  hi CursorLineNr guibg=none
-  hi StatusLine guifg=#141414 guibg=#cecece 
-  hi Visual guibg=#242424 gui=none
-  hi VertSplit guibg=none
+  hi CursorLineNr guibg=none guifg=#cecece
+  hi StatusLine guifg=#cecece guibg=none 
+  hi Visual guibg=#262626 gui=none
+  hi VertSplit guibg=none guifg=#cecece
+  hi vimTodo guibg=none guifg=#fb4934 gui=bold
+  hi Todo guibg=none guifg=#fb4934 gui=bold
   :set fillchars+=vert:\|
+
+  " go " 
+  let g:go_highlight_types = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_function_calls = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_extra_types = 1
+  let g:go_highlight_variable_declarations = 1
+  let g:go_highlight_variable_assignments = 1
+  let g:go_highlight_build_constraints = 1
+  let g:go_highlight_diagnostic_errors = 1
+  let g:go_highlight_diagnostic_warnings = 1
 ]]
+

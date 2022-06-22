@@ -13,6 +13,6 @@ return {
   base0B = "#b8bb26",
   base0C = "#86b17f",
   base0D = "#7daea3",
-  base0E = "#d3869b",
+  base0E = "#b16286",
   base0F = "#d65d0e"
 }

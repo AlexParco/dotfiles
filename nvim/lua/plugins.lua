@@ -38,10 +38,12 @@ require('packer').startup {
         require('plugins.treesitter')
       end
     }
-    
+
     -- UI
     use 'RRethy/nvim-base16'
     use 'morhetz/gruvbox'
+    use 'eemed/sitruuna.vim'
+    use 'sainnhe/everforest'
 
     use {
       'kyazdani42/nvim-tree.lua',
@@ -105,7 +107,6 @@ require('packer').startup {
 
     use 'fatih/vim-go'
   end,
-
   config = {
     display = {
       open_fn = function()

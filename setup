@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+# Links every config in this repo to its place in $HOME.
+# Shared configs are always linked; macos/ or linux/ ones depend on the OS.
+# Existing files are moved to ~/.dotfiles-backup/<timestamp>/ before linking.
+#
+#   ./setup            create the links
+#   ./setup --dry-run  show what would happen without touching anything
+
+set -euo pipefail
+
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BACKUP="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
+DRY_RUN=0
+[[ "${1:-}" == "--dry-run" ]] && DRY_RUN=1
+
+# source (relative to repo) | target
+SHARED=(
+  "git/.gitconfig|$HOME/.gitconfig"
+  "git/ignore|$HOME/.config/git/ignore"
+  "nvim|$HOME/.config/nvim"
+)
+
+VSCODE="$HOME/Library/Application Support/Code/User"
+MACOS=(
+  "macos/zsh/.zshrc|$HOME/.zshrc"
+  "macos/zsh/.zshenv|$HOME/.zshenv"
+  "macos/tmux/tmux.conf|$HOME/.tmux.conf"
+  "macos/tmux|$HOME/.config/tmux"
+  "macos/alacritty|$HOME/.config/alacritty"
+  "macos/vscode/settings.json|$VSCODE/settings.json"
+  "macos/vscode/keybindings.json|$VSCODE/keybindings.json"
+)
+
+LINUX=(
+  "linux/.zshrc|$HOME/.zshrc"
+  "linux/.tmux.conf|$HOME/.tmux.conf"
+  "linux/.xinitrc|$HOME/.xinitrc"
+  "linux/.fonts|$HOME/.fonts"
+  "linux/screenlayout|$HOME/.screenlayout"
+  "linux/alacritty|$HOME/.config/alacritty"
+  "linux/bspwm|$HOME/.config/bspwm"
+  "linux/i3|$HOME/.config/i3"
+  "linux/polybar|$HOME/.config/polybar"
+  "linux/rofi|$HOME/.config/rofi"
+  "linux/sxhkd|$HOME/.config/sxhkd"
+)
+
+case "$(uname -s)" in
+  Darwin) OS=macos; LINKS=("${SHARED[@]}" "${MACOS[@]}") ;;
+  Linux)  OS=linux; LINKS=("${SHARED[@]}" "${LINUX[@]}") ;;
+  *) echo "Unsupported OS: $(uname -s)"; exit 1 ;;
+esac
+
+echo "OS: $OS"
+
+run() {
+  if (( DRY_RUN )); then echo "  [dry-run] $*"; else "$@"; fi
+}
+
+for entry in "${LINKS[@]}"; do
+  src="$DOTFILES/${entry%%|*}"
+  dst="${entry#*|}"
+
+  if [[ ! -e "$src" ]]; then
+    echo "✗ missing in repo: $src"
+    continue
+  fi
+
+  if [[ -L "$dst" && "$(readlink "$dst")" == "$src" ]]; then
+    echo "✓ $dst"
+    continue
+  fi
+
+  if [[ -e "$dst" || -L "$dst" ]]; then
+    echo "↻ backup $dst"
+    run mkdir -p "$BACKUP$(dirname "${dst#$HOME}")"
+    run mv "$dst" "$BACKUP${dst#$HOME}"
+  fi
+
+  echo "→ $dst"
+  run mkdir -p "$(dirname "$dst")"
+  run ln -s "$src" "$dst"
+done
+
+if [[ ! -f "$HOME/.gitconfig.local" ]]; then
+  echo "→ $HOME/.gitconfig.local (template, fill in your identity)"
+  if (( ! DRY_RUN )); then
+    cat > "$HOME/.gitconfig.local" <<'EOF'
+[user]
+	email =
+	name =
+EOF
+    chmod 600 "$HOME/.gitconfig.local"
+  fi
+fi
+
+if [[ "$OS" == macos && ! -f "$HOME/.zshrc.local" ]]; then
+  echo "→ $HOME/.zshrc.local (template, fill in your tokens)"
+  if (( ! DRY_RUN )); then
+    cat > "$HOME/.zshrc.local" <<'EOF'
+# Secrets and per-machine values. Never commit this file.
+EOF
+    chmod 600 "$HOME/.zshrc.local"
+  fi
+fi
+
+[[ -d "$BACKUP" ]] && echo "Backups in $BACKUP"
+echo "Done."

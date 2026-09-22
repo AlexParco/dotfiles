@@ -1,55 +1,97 @@
-fn = vim.fn
-api = vim.api
-cmd = vim.cmd
-opt = vim.opt
-g = vim.g
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
-_G.theme = "gruvbox"
+local opt = vim.opt
 
-local modules = {
-  'options',
-  'mappings',
-  'colors',
-  'statusline',
-  'plugins',
-  'lsp'
-}
+opt.number = true
+opt.relativenumber = true
 
-for i, a in ipairs(modules) do
-  local ok, err = pcall(require, a)
-  if not ok then 
-    error("Error calling " .. a .. err)
-  end
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.smartindent = true
+opt.autoindent = true
+
+opt.clipboard = "unnamedplus"
+
+opt.splitright = true
+opt.splitbelow = true
+
+-- Calidad de vida
+opt.undofile = true          -- undo persistente entre sesiones
+opt.ignorecase = true        -- búsqueda insensible a mayúsculas...
+opt.smartcase = true         -- ...salvo que escribas alguna mayúscula
+opt.signcolumn = "yes"       -- columna de signos siempre visible (evita saltos)
+opt.scrolloff = 8            -- mantiene 8 líneas de margen al hacer scroll
+opt.cursorline = true        -- resalta la línea actual
+opt.termguicolors = true     -- colores true-color (necesario para el tema)
+
+local map = vim.keymap.set
+
+map("i", "jk", "<Esc>", { desc = "Salir a modo normal" })
+map("i", "kj", "<Esc>", { desc = "Salir a modo normal" })
+
+map("n", "<leader>w", "<cmd>w<CR>", { desc = "Guardar" })
+map("n", "<leader>q", "<cmd>q<CR>", { desc = "Salir" })
+map("n", "<leader>wq", "<cmd>wq<CR>", { desc = "Guardar y salir" })
+map("n", "<leader>Q", "<cmd>qa!<CR>", { desc = "Salir forzado (todos)" })
+
+-- Splits / paneles
+map("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split vertical" })
+map("n", "<leader>sh", "<cmd>split<CR>",  { desc = "Split horizontal" })
+map("n", "<leader>sc", "<cmd>close<CR>",  { desc = "Cerrar panel actual" })
+map("n", "<leader>so", "<cmd>only<CR>",   { desc = "Cerrar otros paneles" })
+
+-- Navegar entre paneles con Ctrl + hjkl
+map("n", "<C-h>", "<C-w>h", { desc = "Ir panel izq" })
+map("n", "<C-j>", "<C-w>j", { desc = "Ir panel abajo" })
+map("n", "<C-k>", "<C-w>k", { desc = "Ir panel arriba" })
+map("n", "<C-l>", "<C-w>l", { desc = "Ir panel der" })
+
+-- Redimensionar con Ctrl + flechas
+map("n", "<C-Up>",    "<cmd>resize +2<CR>",          { desc = "Alto +" })
+map("n", "<C-Down>",  "<cmd>resize -2<CR>",          { desc = "Alto -" })
+map("n", "<C-Left>",  "<cmd>vertical resize -2<CR>", { desc = "Ancho -" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Ancho +" })
+
+-- Desactiva Ex mode
+map("n", "Q", "<Nop>", { desc = "Desactivar Ex mode" })
+
+-- En modo normal: w guarda, q sale (sobrescribe el movimiento de palabra)
+map("n", "w", "<cmd>w<CR>", { desc = "Guardar" })
+map("n", "q", "<cmd>q<CR>", { desc = "Salir" })
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Auto commands
-cmd [[
-  au TermOpen term://* setlocal nonumber norelativenumber signcolumn=no | setfiletype terminal
-  set t_Co=256
-  colorscheme everforest
-  hi Normal guibg=none
-  hi EndOfBuffer guibg=none
+require("lazy").setup("plugins", {
+  change_detection = { notify = false },
+})
 
-  hi CursorLine guibg=none
-  hi CursorLineNr guibg=none guifg=#cecece
-  hi StatusLine guifg=#cecece guibg=none 
-  hi Visual guibg=#262626 gui=none
-  hi VertSplit guibg=none guifg=#cecece
-  hi vimTodo guibg=none guifg=#fb4934 gui=bold
-  hi Todo guibg=none guifg=#fb4934 gui=bold
-  :set fillchars+=vert:\|
+vim.opt.termguicolors = true
+vim.cmd.colorscheme("vs2019-dark")
 
-  " go " 
-  let g:go_highlight_types = 1
-  let g:go_highlight_fields = 1
-  let g:go_highlight_functions = 1
-  let g:go_highlight_function_calls = 1
-  let g:go_highlight_operators = 1
-  let g:go_highlight_extra_types = 1
-  let g:go_highlight_variable_declarations = 1
-  let g:go_highlight_variable_assignments = 1
-  let g:go_highlight_build_constraints = 1
-  let g:go_highlight_diagnostic_errors = 1
-  let g:go_highlight_diagnostic_warnings = 1
-]]
-
+-- Iconos de diagnósticos (en vez de las letras E/W/I/H) + UX
+vim.diagnostic.config({
+  severity_sort = true,
+  underline = true,
+  update_in_insert = false,
+  virtual_text = { spacing = 4, source = "if_many", prefix = "●" },
+  float = { border = "rounded", source = "if_many" },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN]  = "",
+      [vim.diagnostic.severity.INFO]  = "",
+      [vim.diagnostic.severity.HINT]  = "",
+    },
+  },
+})

@@ -1,0 +1,382 @@
+{
+    "editor.suggestSelection": "first",
+    "terminal.integrated.fontSize": 10,
+    "editor.fontFamily": "JetBrains Mono, SFMono Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.lineNumbers": "relative",
+    "editor.linkedEditing": false,
+    "editor.wordWrap": "on",
+    "editor.cursorBlinking": "solid",
+    "editor.fontSize": 10,
+    "editor.cursorStyle": "block-outline",
+    "editor.renderWhitespace": "selection",
+    "editor.minimap.enabled": false,
+    "js/ts.tsdk.path": "node_modules/typescript/lib",
+    "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.autoClosingBrackets": "always",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true,
+        "**/node_modules": true
+    },
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<TAB>"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": [
+                "<S-tab>"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "2"
+            ],
+            "commands": [
+                "editor.action.commentLine"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g"
+            ],
+            "commands": [
+                "vs-code-gen-mongo-id.generateIdAtCursor"
+            ]
+        },
+        // nose para que lo configure xd 
+        {
+            "before": [
+                "<leader>",
+                "r"
+            ],
+            "commands": [
+                "npm-intellisense.import"
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "J",
+                "K"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "after": [
+                ">",
+                "g",
+                "v"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "after": [
+                "<",
+                "g",
+                "v"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "2"
+            ],
+            "commands": [
+                "editor.action.commentLine"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t"
+            ],
+            "commands": [
+                "references-view.findReferences"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "s",
+                "c"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.showCommands"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+        {
+            "before": [
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": [
+                "q"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.view.scm"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "c"
+            ],
+            "commands": [
+                "copyRelativeFilePath"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "x"
+            ],
+            "commands": [
+                "workbench.action.closeOtherEditors"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "s",
+                "c"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.transformToSnakecase"
+                }
+            ]
+        }
+    ],
+    "vim.leader": ",",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-j>": false,
+        "<C-d>": false,
+        "<C-c>": false,
+        "<C-x>": false,
+        "<C-v>": true,
+        "<C-z>": false,
+    },
+    "explorer.confirmDelete": false,
+    "extensions.ignoreRecommendations": false,
+    "window.titleBarStyle": "custom",
+    "editor.formatOnSave": true,
+    "terminal.integrated.defaultProfile.linux": "tmux",
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    },
+    "cSpell.userWords": [
+    ],
+    "diffEditor.ignoreTrimWhitespace": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "never",
+        "source.fixAll": "never",
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "cSpell.language": "en,es-ES",
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "window.customTitleBarVisibility": "windowed",
+    "workbench.startupEditor": "none",
+    "errorLens.excludeWorkspaces": [],
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+        "pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata",
+        "*.dart": "${capture}.g.dart",
+        "*.cs": "${capture}.designer.cs,${capture}.g.cs,${capture}.generated.cs,${capture}.run.json,${capture}.settings.json,${capture}.settings.*.json",
+        "*.csproj": "${capture}.csproj.user",
+        "*.json": "${capture}.Development.json",
+        "*.cshtml": "${capture}.cshtml.cs,${capture}.cshtml.css",
+        "*.razor": "${capture}.razor.cs,${capture}.razor.css",
+        "*.resx": "${capture}.Designer.cs",
+        "*.xaml": "${capture}.xaml.cs",
+        "*.sqlite": "${capture}.${extname}-*",
+        "*.db": "${capture}.${extname}-*",
+        "*.sqlite3": "${capture}.${extname}-*",
+        "*.db3": "${capture}.${extname}-*",
+        "*.sdb": "${capture}.${extname}-*",
+        "*.s3db": "${capture}.${extname}-*"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "editor.multiCursorModifier": "ctrlCmd",
+    "application.shellEnvironmentResolutionTimeout": 20,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "[handlebars]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "editor.stickyScroll.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "workbench.navigationControl.enabled": false,
+    "workbench.layoutControl.enabled": false,
+    "window.commandCenter": false,
+    "todohighlight.keywords": [
+        {
+            "text": "DEBUG:",
+            "color": "black",
+            "backgroundColor": "#fff",
+        },
+        {
+            "text": "NOTE:",
+            "color": "black",
+            "backgroundColor": "#fff",
+        },
+        {
+            "text": "TODO:",
+            "color": "black",
+            "backgroundColor": "#fff",
+        }
+    ],
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "mdb.showMongoDBPlaygrounds": false,
+    "mdb.showMongoDBHelpExplorer": false,
+    "mdb.confirmRunCopilotCode": false,
+    "git.confirmSync": false,
+    "[css]": {
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "database-client.autoSync": true,
+    "git.autofetch": true,
+    "notes.notesLocation": "${userHome}/notas",
+    "editor.matchBrackets": "never",
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "mdb.mcp.server": "prompt",
+    "workbench.activityBar.location": "bottom",
+    "markdown-preview-enhanced.revealjsTheme": "black.css",
+    "dart.flutterSdkPath": "${userHome}/flutter",
+    "chat.mcp.gallery.enabled": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "catppuccin-noctis-icons.hidesExplorerArrows": false,
+    "workbench.colorTheme": "Everforest Higure",
+    "claudeCode.preferredLocation": "panel",
+    "chat.viewSessions.orientation": "stacked",
+    "workbench.statusBar.visible": false,
+    "js/ts.tsserver.log": "verbose",
+}

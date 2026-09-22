@@ -1,0 +1,62 @@
+[window]
+dynamic_padding = true
+
+[window.padding]
+x = 20
+y = 30
+
+[font]
+size = 12
+
+[font.normal]
+family = "Liga SFMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "Liga SFMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Liga SFMono Nerd Font"
+style = "RegularItalic"
+
+[font.bold_italic]
+family = "Liga SFMono Nerd Font"
+style = "BoldItalic"
+
+[scrolling]
+history = 10000
+
+# Colors (match iTerm2 Default profile - Dark mode)
+
+[colors.primary]
+foreground = "#ffffff"
+background = "#141414"
+
+[colors.cursor]
+text = "#141414"
+cursor = "#ffffff"
+
+[colors.selection]
+text = "#ffffff"
+background = "#303030"
+
+[colors.normal]
+black = "#2a2a2a"
+red = "#bf616a"
+green = "#a3be8c"
+yellow = "#ebcb8b"
+blue = "#81a1c1"
+magenta = "#b48ead"
+cyan = "#88c0d0"
+white = "#d8dee9"
+
+[colors.bright]
+black = "#505050"
+red = "#bf616a"
+green = "#a3be8c"
+yellow = "#ebcb8b"
+blue = "#81a1c1"
+magenta = "#b48ead"
+cyan = "#88c0d0"
+white = "#ffffff"

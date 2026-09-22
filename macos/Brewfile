@@ -1,0 +1,130 @@
+tap "hettysoft/tap"
+tap "jaisonerick/tap"
+tap "normen/tap"
+tap "theboredteam/boring-notch", "https://github.com/TheBoredTeam/homebrew-boring-notch"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# World's fastest and most advanced password recovery utility
+brew "hashcat"
+# Utils for conversion of cap/pcap/pcapng WiFi dump files
+brew "hcxtools"
+# Apache Kafka C/C++ library
+brew "librdkafka"
+# MongoDB Shell to connect, configure, query, and work with your MongoDB database
+brew "mongosh"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Tool for managing OCI containers and pods
+brew "podman"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Internet file retriever
+brew "wget"
+# Port of OpenAI's Whisper model in C/C++
+brew "whisper.cpp"
+# UNIX shell (command interpreter)
+brew "zsh"
+# GPU-accelerated terminal emulator
+cask "alacritty"
+# Android SDK component
+cask "android-platform-tools"
+cask "boring-notch"
+# Web browser
+cask "firefox"
+cask "font-hack-nerd-font"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Interactive tool for analyzing MongoDB data
+cask "mongodb-compass"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# Music streaming service
+cask "spotify"
+# JDK from the Eclipse Foundation (Adoptium)
+cask "temurin@8"
+# Open-source code editor
+cask "visual-studio-code"
+vscode "aaron-bond.better-comments"
+vscode "anthropic.claude-code"
+vscode "astro-build.astro-vscode"
+vscode "cweijan.dbclient-jdbc"
+vscode "cweijan.vscode-database-client2"
+vscode "dart-code.dart-code"
+vscode "dart-code.flutter"
+vscode "dbaeumer.vscode-eslint"
+vscode "digitalbrainstem.javascript-ejs-support"
+vscode "dionmunk.vscode-notes"
+vscode "editorconfig.editorconfig"
+vscode "esbenp.prettier-vscode"
+vscode "golang.go"
+vscode "gracefulpotato.gruvbox-ish"
+vscode "haru.everforest"
+vscode "heavenaldrico.aldrico-s-gruvbox"
+vscode "huizhou.githd"
+vscode "jonathanlewis.vs-code-gen-mongo-id"
+vscode "manutero.simple-dark-theme"
+vscode "mongodb.mongodb-vscode"
+vscode "ms-dotnettools.csdevkit"
+vscode "ms-dotnettools.csharp"
+vscode "ms-dotnettools.vscode-dotnet-runtime"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode-remote.remote-wsl"
+vscode "ms-vscode-remote.vscode-remote-extensionpack"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vscode.remote-server"
+vscode "octref.vetur"
+vscode "pomdtr.excalidraw-editor"
+vscode "qwtel.sqlite-viewer"
+vscode "rafamel.subtle-brackets"
+vscode "rangav.vscode-thunder-client"
+vscode "scala-lang.scala"
+vscode "shd101wyy.markdown-preview-enhanced"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "streetsidesoftware.code-spell-checker-spanish"
+vscode "tooltitudeteam.tooltitude-pb"
+vscode "usernamehw.errorlens"
+vscode "vscodevim.vim"
+vscode "wallabyjs.quokka-vscode"
+vscode "wayou.vscode-todo-highlight"
+vscode "wheredoesyourmindgo.gruvbox-concoctis"
+go "github.com/AlexParco/esc/cmd/esc"
+go "github.com/pressly/goose/v3/cmd/goose"
+go "golang.org/x/tools/gopls"
+go "honnef.co/go/tools/cmd/staticcheck"
+uv "specify-cli", source: "git+https://github.com/github/spec-kit.git@v0.10.2"
+npm "corepack"
+npm "deploy"
+npm "flink-deploy"
+npm "portscout"
+npm "ts-proto"
+npm "typescript"
